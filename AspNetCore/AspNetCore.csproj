@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <UserSecretsId>aspnet-AspNetCore-EC6BBAFF-2040-4FAB-B00D-E05268586631</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Authorization\BaseResourceAuthorizationHandler.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" PrivateAssets="All" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.2" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.1" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspNetCore.Data.EF\AspNetCore.Data.EF.csproj" />
+    <ProjectReference Include="..\AspNetCore.Data\AspNetCore.Data.csproj" />
+    <ProjectReference Include="..\AspNetCore.Infrastructure\AspNetCore.Infrastructure.csproj" />
+    <ProjectReference Include="..\AspNetCore.Services\AspNetCore.Services.csproj" />
+    <ProjectReference Include="..\AspNetCore.Utilities\AspNetCore.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Components\" />
+    <Folder Include="Logs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\app\controllers\login\index.js" />
+    <None Include="wwwroot\app\controllers\product\index.js" />
+    <None Include="wwwroot\app\shared\constants.js" />
+    <None Include="wwwroot\app\shared\messages.js" />
+    <None Include="wwwroot\app\shared\aspnetcore.js" />
+  </ItemGroup>
+
+</Project>

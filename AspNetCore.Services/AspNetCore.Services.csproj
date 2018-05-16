@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Content\Contacts\ContactService.cs" />
+    <Compile Remove="Content\Contacts\IContactService.cs" />
+    <Compile Remove="Content\Feedbacks\FeedbackService.cs" />
+    <Compile Remove="Content\Feedbacks\IFeedbackService.cs" />
+    <Compile Remove="Content\Pages\IPageService.cs" />
+    <Compile Remove="Content\Pages\PageService.cs" />
+    <Compile Remove="Content\Posts\IPostService.cs" />
+    <Compile Remove="Content\Posts\PostService.cs" />
+    <Compile Remove="Content\Slides\ISlideService.cs" />
+    <Compile Remove="Content\Slides\SlideService.cs" />
+    <Compile Remove="ECommerce\Bills\BillService.cs" />
+    <Compile Remove="ECommerce\Bills\IBillService.cs" />
+    <Compile Remove="Systems\Announcements\AnnouncementService.cs" />
+    <Compile Remove="Systems\Announcements\IAnnouncementService.cs" />
+    <Compile Remove="Systems\AuditLogs\AuditLogService.cs" />
+    <Compile Remove="Systems\AuditLogs\IAuditLogService.cs" />
+    <Compile Remove="Systems\Commons\CommonService.cs" />
+    <Compile Remove="Systems\Commons\ICommonService.cs" />
+    <Compile Remove="Systems\Functions\FunctionService.cs" />
+    <Compile Remove="Systems\Functions\IFunctionService.cs" />
+    <Compile Remove="Systems\Permissions\IPermissionService.cs" />
+    <Compile Remove="Systems\Permissions\PermissionService.cs" />
+    <Compile Remove="Systems\Roles\IRoleService.cs" />
+    <Compile Remove="Systems\Roles\RoleService.cs" />
+    <Compile Remove="Systems\Settings\ISystemConfigService.cs" />
+    <Compile Remove="Systems\Users\IUserService.cs" />
+    <Compile Remove="Systems\Users\UserService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="EPPlus.Core" Version="1.5.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspNetCore.Data.EF\AspNetCore.Data.EF.csproj" />
+    <ProjectReference Include="..\AspNetCore.Data\AspNetCore.Data.csproj" />
+    <ProjectReference Include="..\AspNetCore.Utilities\AspNetCore.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Systems\AuditLogs\" />
+    <Folder Include="Systems\Commons\" />
+  </ItemGroup>
+
+</Project>

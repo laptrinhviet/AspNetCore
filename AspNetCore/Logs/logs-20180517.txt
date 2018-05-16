@@ -1,0 +1,485 @@
+2018-05-17T04:59:32.1061451+07:00  [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-17T04:59:33.0657514+07:00  [INF] Executed DbCommand ("26"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppRoles] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T04:59:33.4972304+07:00  [INF] Executed DbCommand ("151"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-17T04:59:33.9913623+07:00  [INF] Executed DbCommand ("53"ms) [Parameters=["@p0='?', @p1='?' (Size = 4000), @p2='?' (Size = 255), @p3='?' (Size = 4000), @p4='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [AppRoles] ([Id], [ConcurrencyStamp], [Description], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2018-05-17T04:59:34.0912583+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-17T04:59:34.1629435+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=["@p0='?', @p1='?' (Size = 4000), @p2='?' (Size = 255), @p3='?' (Size = 4000), @p4='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [AppRoles] ([Id], [ConcurrencyStamp], [Description], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2018-05-17T04:59:34.1846529+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-17T04:59:34.2137902+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=["@p0='?', @p1='?' (Size = 4000), @p2='?' (Size = 255), @p3='?' (Size = 4000), @p4='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [AppRoles] ([Id], [ConcurrencyStamp], [Description], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2018-05-17T04:59:34.2519412+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppUsers] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T04:59:34.5549255+07:00  [INF] Executed DbCommand ("6"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Address], [u].[Avatar], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[CreatedDate], [u].[DeletedDate], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[Gender], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UpdatedDate], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-17T04:59:34.6346160+07:00  [INF] Executed DbCommand ("8"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Address], [u].[Avatar], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[CreatedDate], [u].[DeletedDate], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[Gender], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UpdatedDate], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0" (0723d8ff)
+2018-05-17T04:59:34.8402558+07:00  [INF] Executed DbCommand ("7"ms) [Parameters=["@p0='?', @p1='?', @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?', @p5='?' (Size = 4000), @p6='?', @p7='?', @p8='?' (Size = 4000), @p9='?', @p10='?' (Size = 255), @p11='?' (Size = 4000), @p12='?', @p13='?', @p14='?' (Size = 4000), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?', @p19='?' (Size = 4000), @p20='?', @p21='?', @p22='?', @p23='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [AppUsers] ([Id], [AccessFailedCount], [Address], [Avatar], [BirthDay], [ConcurrencyStamp], [CreatedDate], [DeletedDate], [Email], [EmailConfirmed], [FullName], [Gender], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [Status], [TwoFactorEnabled], [UpdatedDate], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23);" (0723d8ff)
+2018-05-17T04:59:34.8787828+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Address], [u].[Avatar], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[CreatedDate], [u].[DeletedDate], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[Gender], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UpdatedDate], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-17T04:59:34.9688474+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=["@__normalizedRoleName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0" (0723d8ff)
+2018-05-17T04:59:35.0513177+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=["@__get_Item_0='?', @__get_Item_1='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[RoleId], [e].[UserId]
+FROM [AppUserRoles] AS [e]
+WHERE ([e].[RoleId] = @__get_Item_0) AND ([e].[UserId] = @__get_Item_1)" (0723d8ff)
+2018-05-17T04:59:35.0901268+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedRoleName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0" (0723d8ff)
+2018-05-17T04:59:35.1337569+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Address], [u].[Avatar], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[CreatedDate], [u].[DeletedDate], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[Gender], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UpdatedDate], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-17T04:59:35.1573425+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Address], [u].[Avatar], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[CreatedDate], [u].[DeletedDate], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[Gender], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UpdatedDate], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0" (0723d8ff)
+2018-05-17T04:59:35.2107899+07:00  [INF] Executed DbCommand ("17"ms) [Parameters=["@p0='?', @p1='?', @p25='?', @p2='?', @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?', @p6='?' (Size = 4000), @p7='?', @p8='?', @p9='?' (Size = 4000), @p10='?', @p11='?' (Size = 255), @p12='?' (Size = 4000), @p13='?', @p14='?', @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (Size = 4000), @p19='?', @p20='?' (Size = 4000), @p21='?', @p22='?', @p23='?', @p24='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [AppUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+UPDATE [AppUsers] SET [AccessFailedCount] = @p2, [Address] = @p3, [Avatar] = @p4, [BirthDay] = @p5, [ConcurrencyStamp] = @p6, [CreatedDate] = @p7, [DeletedDate] = @p8, [Email] = @p9, [EmailConfirmed] = @p10, [FullName] = @p11, [Gender] = @p12, [LockoutEnabled] = @p13, [LockoutEnd] = @p14, [NormalizedEmail] = @p15, [NormalizedUserName] = @p16, [PasswordHash] = @p17, [PhoneNumber] = @p18, [PhoneNumberConfirmed] = @p19, [SecurityStamp] = @p20, [Status] = @p21, [TwoFactorEnabled] = @p22, [UpdatedDate] = @p23, [UserName] = @p24
+WHERE [Id] = @p25;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2018-05-17T04:59:35.2494512+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Functions] AS [f])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T04:59:35.3373608+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Contacts] AS [x]
+WHERE [x].[Id] = 'default'" (0723d8ff)
+2018-05-17T04:59:35.4029335+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Footers] AS [x]
+WHERE [x].[Id] = 'default'" (0723d8ff)
+2018-05-17T04:59:35.4391692+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AdvertistmentPages] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T04:59:35.4884222+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Slides] AS [s])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T04:59:35.5386383+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ProductCategories] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T04:59:35.7686588+07:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeTitle')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T04:59:35.8420712+07:00  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeMetaKeyword')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T04:59:35.8766294+07:00  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeMetaDescription')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T04:59:36.4896045+07:00  [INF] Executed DbCommand ("177"ms) [Parameters=["@p0='?', @p1='?' (Size = 255), @p2='?' (Size = 255), @p3='?', @p4='?' (Size = 255), @p5='?' (Size = 255), @p6='?', @p7='?' (Size = 255), @p8='?' (Size = 255), @p9='?' (Size = 255), @p10='?' (Size = 255), @p11='?' (Size = 128), @p12='?', @p13='?', @p14='?' (Size = 255), @p15='?' (Size = 4000), @p16='?' (Size = 64), @p17='?', @p18='?' (Size = 128), @p19='?' (Size = 255), @p20='?' (Size = 4000), @p21='?', @p22='?', @p23='?' (Size = 4000), @p24='?' (Size = 255), @p25='?', @p26='?', @p27='?', @p28='?' (Size = 255), @p29='?' (Size = 255), @p30='?', @p31='?' (Size = 4000), @p32='?' (Size = 255), @p33='?', @p34='?', @p35='?', @p36='?' (Size = 255), @p37='?' (Size = 255), @p38='?', @p39='?' (Size = 4000), @p40='?' (Size = 255), @p41='?', @p42='?', @p43='?', @p44='?' (Size = 255), @p45='?' (Size = 255), @p46='?', @p47='?' (Size = 4000), @p48='?' (Size = 255), @p49='?', @p50='?', @p51='?', @p52='?' (Size = 255), @p53='?' (Size = 255), @p54='?', @p55='?' (Size = 4000), @p56='?' (Size = 255), @p57='?', @p58='?', @p59='?', @p60='?' (Size = 255), @p61='?' (Size = 255), @p62='?', @p63='?' (Size = 4000), @p64='?' (Size = 255), @p65='?', @p66='?', @p67='?', @p68='?' (Size = 255), @p69='?' (Size = 255), @p70='?', @p71='?' (Size = 4000), @p72='?' (Size = 255), @p73='?', @p74='?', @p75='?', @p76='?' (Size = 255), @p77='?' (Size = 255), @p78='?', @p79='?' (Size = 4000), @p80='?' (Size = 255), @p81='?', @p82='?', @p83='?', @p84='?' (Size = 255), @p85='?' (Size = 255), @p86='?', @p87='?' (Size = 4000), @p88='?' (Size = 255), @p89='?', @p90='?', @p91='?', @p92='?' (Size = 255), @p93='?' (Size = 255), @p94='?', @p95='?' (Size = 4000), @p96='?' (Size = 255), @p97='?', @p98='?', @p99='?', @p100='?' (Size = 255), @p101='?' (Size = 255), @p102='?', @p103='?' (Size = 4000), @p104='?' (Size = 255), @p105='?', @p106='?', @p107='?', @p108='?' (Size = 255), @p109='?' (Size = 255), @p110='?', @p111='?' (Size = 4000), @p112='?' (Size = 255), @p113='?', @p114='?', @p115='?', @p116='?' (Size = 255), @p117='?' (Size = 255), @p118='?', @p119='?' (Size = 4000), @p120='?' (Size = 255), @p121='?', @p122='?', @p123='?', @p124='?' (Size = 255), @p125='?' (Size = 255), @p126='?', @p127='?' (Size = 4000), @p128='?' (Size = 255), @p129='?', @p130='?', @p131='?', @p132='?' (Size = 255), @p133='?' (Size = 255), @p134='?', @p135='?' (Size = 4000), @p136='?' (Size = 255), @p137='?', @p138='?', @p139='?', @p140='?' (Size = 255), @p141='?' (Size = 255), @p142='?', @p143='?' (Size = 4000), @p144='?' (Size = 255), @p145='?', @p146='?', @p147='?', @p148='?' (Size = 255), @p149='?' (Size = 255), @p150='?', @p151='?' (Size = 4000), @p152='?' (Size = 255), @p153='?', @p154='?', @p155='?', @p156='?' (Size = 255), @p157='?' (Size = 255), @p158='?', @p159='?' (Size = 4000), @p160='?' (Size = 255), @p161='?', @p162='?', @p163='?', @p164='?' (Size = 255), @p165='?' (Size = 255), @p166='?', @p167='?' (Size = 4000), @p168='?' (Size = 255), @p169='?', @p170='?', @p171='?', @p172='?' (Size = 255), @p173='?' (Size = 255), @p174='?', @p175='?' (Size = 4000), @p176='?' (Size = 255), @p177='?', @p178='?', @p179='?', @p180='?' (Size = 255), @p181='?' (Size = 255), @p182='?', @p183='?' (Size = 4000), @p184='?' (Size = 255), @p185='?', @p186='?', @p187='?', @p188='?' (Size = 255), @p189='?' (Size = 255), @p190='?', @p191='?' (Size = 4000), @p192='?' (Size = 255), @p193='?', @p194='?', @p195='?', @p196='?' (Size = 255), @p197='?' (Size = 255), @p198='?', @p199='?' (Size = 4000), @p200='?' (Size = 255), @p201='?', @p202='?', @p203='?', @p204='?' (Size = 255), @p205='?' (Size = 255), @p206='?', @p207='?' (Size = 4000), @p208='?' (Size = 255), @p209='?', @p210='?', @p211='?', @p212='?' (Size = 255), @p213='?' (Size = 255), @p214='?', @p215='?' (Size = 4000), @p216='?' (Size = 255), @p217='?', @p218='?', @p219='?', @p220='?' (Size = 255), @p221='?' (Size = 255), @p222='?', @p223='?' (Size = 4000), @p224='?' (Size = 255), @p225='?', @p226='?', @p227='?', @p228='?' (Size = 255), @p229='?' (Size = 255), @p230='?', @p231='?' (Size = 4000), @p232='?' (Size = 255), @p233='?', @p234='?', @p235='?', @p236='?' (Size = 255), @p237='?' (Size = 255), @p238='?', @p239='?' (Size = 4000), @p240='?' (Size = 255), @p241='?', @p242='?', @p243='?', @p244='?' (Size = 255), @p245='?' (Size = 255), @p246='?', @p247='?' (Size = 255), @p248='?', @p249='?', @p250='?', @p251='?' (Size = 4000), @p252='?', @p253='?', @p254='?' (Size = 255), @p255='?' (Size = 300), @p256='?' (Size = 4000), @p257='?' (Size = 255), @p258='?' (Size = 255), @p259='?' (Size = 70), @p260='?', @p261='?' (Size = 255), @p262='?', @p263='?', @p264='?', @p265='?', @p266='?' (Size = 255), @p267='?', @p268='?', @p269='?', @p270='?' (Size = 4000), @p271='?', @p272='?', @p273='?' (Size = 255), @p274='?' (Size = 300), @p275='?' (Size = 4000), @p276='?' (Size = 255), @p277='?' (Size = 255), @p278='?' (Size = 70), @p279='?', @p280='?' (Size = 255), @p281='?', @p282='?', @p283='?', @p284='?', @p285='?' (Size = 255), @p286='?', @p287='?', @p288='?', @p289='?' (Size = 4000), @p290='?', @p291='?', @p292='?' (Size = 255), @p293='?' (Size = 300), @p294='?' (Size = 4000), @p295='?' (Size = 255), @p296='?' (Size = 255), @p297='?' (Size = 70), @p298='?', @p299='?' (Size = 255), @p300='?', @p301='?', @p302='?', @p303='?', @p304='?' (Size = 255), @p305='?', @p306='?', @p307='?', @p308='?' (Size = 4000), @p309='?', @p310='?', @p311='?' (Size = 255), @p312='?' (Size = 300), @p313='?' (Size = 4000), @p314='?' (Size = 255), @p315='?' (Size = 255), @p316='?' (Size = 70), @p317='?', @p318='?' (Size = 255), @p319='?', @p320='?', @p321='?', @p322='?', @p323='?', @p324='?' (Size = 255), @p325='?' (Size = 4000), @p326='?', @p327='?', @p328='?' (Size = 255), @p329='?', @p330='?', @p331='?' (Size = 255), @p332='?' (Size = 300), @p333='?' (Size = 4000), @p334='?' (Size = 255), @p335='?', @p336='?' (Size = 255), @p337='?' (Size = 70), @p338='?', @p339='?', @p340='?', @p341='?' (Size = 255), @p342='?' (Size = 255), @p343='?', @p344='?', @p345='?', @p346='?', @p347='?' (Size = 255), @p348='?' (Size = 4000), @p349='?', @p350='?', @p351='?' (Size = 255), @p352='?', @p353='?', @p354='?' (Size = 255), @p355='?' (Size = 300), @p356='?' (Size = 4000), @p357='?' (Size = 255), @p358='?', @p359='?' (Size = 255), @p360='?' (Size = 70), @p361='?', @p362='?', @p363='?', @p364='?' (Size = 255), @p365='?' (Size = 255), @p366='?', @p367='?', @p368='?', @p369='?', @p370='?' (Size = 255), @p371='?' (Size = 4000), @p372='?', @p373='?', @p374='?' (Size = 255), @p375='?', @p376='?', @p377='?' (Size = 255), @p378='?' (Size = 300), @p379='?' (Size = 4000), @p380='?' (Size = 255), @p381='?', @p382='?' (Size = 255), @p383='?' (Size = 70), @p384='?', @p385='?', @p386='?', @p387='?' (Size = 255), @p388='?' (Size = 255), @p389='?', @p390='?', @p391='?', @p392='?', @p393='?' (Size = 255), @p394='?' (Size = 4000), @p395='?', @p396='?', @p397='?' (Size = 255), @p398='?', @p399='?', @p400='?' (Size = 255), @p401='?' (Size = 300), @p402='?' (Size = 4000), @p403='?' (Size = 255), @p404='?', @p405='?' (Size = 255), @p406='?' (Size = 70), @p407='?', @p408='?', @p409='?', @p410='?' (Size = 255), @p411='?' (Size = 255), @p412='?', @p413='?', @p414='?', @p415='?', @p416='?' (Size = 255), @p417='?' (Size = 4000), @p418='?', @p419='?', @p420='?' (Size = 255), @p421='?', @p422='?', @p423='?' (Size = 255), @p424='?' (Size = 300), @p425='?' (Size = 4000), @p426='?' (Size = 255), @p427='?', @p428='?' (Size = 255), @p429='?' (Size = 70), @p430='?', @p431='?', @p432='?', @p433='?' (Size = 255), @p434='?' (Size = 255), @p435='?', @p436='?', @p437='?', @p438='?', @p439='?' (Size = 255), @p440='?' (Size = 4000), @p441='?', @p442='?', @p443='?' (Size = 255), @p444='?', @p445='?', @p446='?' (Size = 255), @p447='?' (Size = 300), @p448='?' (Size = 4000), @p449='?' (Size = 255), @p450='?', @p451='?' (Size = 255), @p452='?' (Size = 70), @p453='?', @p454='?', @p455='?', @p456='?' (Size = 255), @p457='?' (Size = 255), @p458='?', @p459='?', @p460='?', @p461='?', @p462='?' (Size = 255), @p463='?' (Size = 4000), @p464='?', @p465='?', @p466='?' (Size = 255), @p467='?', @p468='?', @p469='?' (Size = 255), @p470='?' (Size = 300), @p471='?' (Size = 4000), @p472='?' (Size = 255), @p473='?', @p474='?' (Size = 255), @p475='?' (Size = 70), @p476='?', @p477='?', @p478='?', @p479='?' (Size = 255), @p480='?' (Size = 255), @p481='?', @p482='?', @p483='?', @p484='?', @p485='?' (Size = 255), @p486='?' (Size = 4000), @p487='?', @p488='?', @p489='?' (Size = 255), @p490='?', @p491='?', @p492='?' (Size = 255), @p493='?' (Size = 300), @p494='?' (Size = 4000), @p495='?' (Size = 255), @p496='?', @p497='?' (Size = 255), @p498='?' (Size = 70), @p499='?', @p500='?', @p501='?', @p502='?' (Size = 255), @p503='?' (Size = 255), @p504='?', @p505='?', @p506='?', @p507='?', @p508='?' (Size = 255), @p509='?' (Size = 4000), @p510='?', @p511='?', @p512='?' (Size = 255), @p513='?', @p514='?', @p515='?' (Size = 255), @p516='?' (Size = 300), @p517='?' (Size = 4000), @p518='?' (Size = 255), @p519='?', @p520='?' (Size = 255), @p521='?' (Size = 70), @p522='?', @p523='?', @p524='?', @p525='?' (Size = 255), @p526='?' (Size = 255), @p527='?', @p528='?', @p529='?', @p530='?', @p531='?' (Size = 255), @p532='?' (Size = 4000), @p533='?', @p534='?', @p535='?' (Size = 255), @p536='?', @p537='?', @p538='?' (Size = 255), @p539='?' (Size = 300), @p540='?' (Size = 4000), @p541='?' (Size = 255), @p542='?', @p543='?' (Size = 255), @p544='?' (Size = 70), @p545='?', @p546='?', @p547='?', @p548='?' (Size = 255), @p549='?' (Size = 255), @p550='?', @p551='?', @p552='?', @p553='?', @p554='?' (Size = 255), @p555='?' (Size = 4000), @p556='?', @p557='?', @p558='?' (Size = 255), @p559='?', @p560='?', @p561='?' (Size = 255), @p562='?' (Size = 300), @p563='?' (Size = 4000), @p564='?' (Size = 255), @p565='?', @p566='?' (Size = 255), @p567='?' (Size = 70), @p568='?', @p569='?', @p570='?', @p571='?' (Size = 255), @p572='?' (Size = 255), @p573='?', @p574='?', @p575='?', @p576='?', @p577='?' (Size = 255), @p578='?' (Size = 4000), @p579='?', @p580='?', @p581='?' (Size = 255), @p582='?', @p583='?', @p584='?' (Size = 255), @p585='?' (Size = 300), @p586='?' (Size = 4000), @p587='?' (Size = 255), @p588='?', @p589='?' (Size = 255), @p590='?' (Size = 70), @p591='?', @p592='?', @p593='?', @p594='?' (Size = 255), @p595='?' (Size = 255), @p596='?', @p597='?', @p598='?', @p599='?', @p600='?' (Size = 255), @p601='?' (Size = 4000), @p602='?', @p603='?', @p604='?' (Size = 255), @p605='?', @p606='?', @p607='?' (Size = 255), @p608='?' (Size = 300), @p609='?' (Size = 4000), @p610='?' (Size = 255), @p611='?', @p612='?' (Size = 255), @p613='?' (Size = 70), @p614='?', @p615='?', @p616='?', @p617='?' (Size = 255), @p618='?' (Size = 255), @p619='?', @p620='?', @p621='?', @p622='?', @p623='?' (Size = 255), @p624='?' (Size = 4000), @p625='?', @p626='?', @p627='?' (Size = 255), @p628='?', @p629='?', @p630='?' (Size = 255), @p631='?' (Size = 300), @p632='?' (Size = 4000), @p633='?' (Size = 255), @p634='?', @p635='?' (Size = 255), @p636='?' (Size = 70), @p637='?', @p638='?', @p639='?', @p640='?' (Size = 255), @p641='?' (Size = 255), @p642='?', @p643='?', @p644='?', @p645='?', @p646='?' (Size = 255), @p647='?' (Size = 4000), @p648='?', @p649='?', @p650='?' (Size = 255), @p651='?', @p652='?', @p653='?' (Size = 255), @p654='?' (Size = 300), @p655='?' (Size = 4000), @p656='?' (Size = 255), @p657='?', @p658='?' (Size = 255), @p659='?' (Size = 70), @p660='?', @p661='?', @p662='?', @p663='?' (Size = 255), @p664='?' (Size = 255), @p665='?', @p666='?', @p667='?', @p668='?', @p669='?' (Size = 255), @p670='?' (Size = 4000), @p671='?', @p672='?', @p673='?' (Size = 255), @p674='?', @p675='?', @p676='?' (Size = 255), @p677='?' (Size = 300), @p678='?' (Size = 4000), @p679='?' (Size = 255), @p680='?', @p681='?' (Size = 255), @p682='?' (Size = 70), @p683='?', @p684='?', @p685='?', @p686='?' (Size = 255), @p687='?' (Size = 255), @p688='?', @p689='?', @p690='?', @p691='?', @p692='?' (Size = 255), @p693='?' (Size = 4000), @p694='?', @p695='?', @p696='?' (Size = 255), @p697='?', @p698='?', @p699='?' (Size = 255), @p700='?' (Size = 300), @p701='?' (Size = 4000), @p702='?' (Size = 255), @p703='?', @p704='?' (Size = 255), @p705='?' (Size = 70), @p706='?', @p707='?', @p708='?', @p709='?' (Size = 255), @p710='?' (Size = 255), @p711='?', @p712='?', @p713='?', @p714='?', @p715='?' (Size = 255), @p716='?' (Size = 4000), @p717='?', @p718='?', @p719='?' (Size = 255), @p720='?', @p721='?', @p722='?' (Size = 255), @p723='?' (Size = 300), @p724='?' (Size = 4000), @p725='?' (Size = 255), @p726='?', @p727='?' (Size = 255), @p728='?' (Size = 70), @p729='?', @p730='?', @p731='?', @p732='?' (Size = 255), @p733='?' (Size = 255), @p734='?', @p735='?', @p736='?', @p737='?', @p738='?' (Size = 255), @p739='?' (Size = 4000), @p740='?', @p741='?', @p742='?' (Size = 255), @p743='?', @p744='?', @p745='?' (Size = 255), @p746='?' (Size = 300), @p747='?' (Size = 4000), @p748='?' (Size = 255), @p749='?', @p750='?' (Size = 255), @p751='?' (Size = 70), @p752='?', @p753='?', @p754='?', @p755='?' (Size = 255), @p756='?' (Size = 255), @p757='?', @p758='?', @p759='?', @p760='?', @p761='?' (Size = 255), @p762='?' (Size = 4000), @p763='?', @p764='?', @p765='?' (Size = 255), @p766='?', @p767='?', @p768='?' (Size = 255), @p769='?' (Size = 300), @p770='?' (Size = 4000), @p771='?' (Size = 255), @p772='?', @p773='?' (Size = 255), @p774='?' (Size = 70), @p775='?', @p776='?', @p777='?', @p778='?' (Size = 255), @p779='?' (Size = 255), @p780='?', @p781='?', @p782='?', @p783='?', @p784='?', @p785='?', @p786='?' (Size = 4000), @p787='?', @p788='?' (Size = 128), @p789='?', @p790='?' (Size = 4000), @p791='?' (Size = 255), @p792='?', @p793='?', @p794='?', @p795='?', @p796='?' (Size = 4000), @p797='?', @p798='?' (Size = 128), @p799='?', @p800='?' (Size = 4000), @p801='?' (Size = 255), @p802='?', @p803='?', @p804='?', @p805='?', @p806='?' (Size = 4000), @p807='?', @p808='?' (Size = 128), @p809='?', @p810='?' (Size = 4000), @p811='?' (Size = 255), @p812='?', @p813='?' (Size = 4000), @p814='?' (Size = 255), @p815='?', @p816='?' (Size = 255), @p817='?' (Size = 255), @p818='?', @p819='?', @p820='?' (Size = 255), @p821='?', @p822='?' (Size = 4000), @p823='?' (Size = 255), @p824='?', @p825='?' (Size = 255), @p826='?' (Size = 255), @p827='?', @p828='?', @p829='?' (Size = 255), @p830='?', @p831='?' (Size = 4000), @p832='?' (Size = 255), @p833='?', @p834='?' (Size = 255), @p835='?' (Size = 255), @p836='?', @p837='?', @p838='?' (Size = 255), @p839='?', @p840='?' (Size = 4000), @p841='?' (Size = 255), @p842='?', @p843='?' (Size = 255), @p844='?' (Size = 255), @p845='?', @p846='?', @p847='?' (Size = 255), @p848='?', @p849='?' (Size = 4000), @p850='?' (Size = 255), @p851='?', @p852='?' (Size = 255), @p853='?' (Size = 255), @p854='?', @p855='?', @p856='?' (Size = 255), @p857='?', @p858='?' (Size = 4000), @p859='?' (Size = 255), @p860='?', @p861='?' (Size = 255), @p862='?' (Size = 255), @p863='?', @p864='?', @p865='?' (Size = 255), @p866='?', @p867='?' (Size = 4000), @p868='?' (Size = 255), @p869='?', @p870='?' (Size = 255), @p871='?' (Size = 255), @p872='?', @p873='?', @p874='?' (Size = 255), @p875='?', @p876='?' (Size = 4000), @p877='?' (Size = 255), @p878='?', @p879='?' (Size = 255), @p880='?' (Size = 255), @p881='?', @p882='?', @p883='?' (Size = 255), @p884='?', @p885='?' (Size = 4000), @p886='?' (Size = 255), @p887='?', @p888='?' (Size = 255), @p889='?' (Size = 255), @p890='?', @p891='?', @p892='?' (Size = 255), @p893='?', @p894='?' (Size = 4000), @p895='?' (Size = 255), @p896='?', @p897='?' (Size = 255), @p898='?' (Size = 255), @p899='?', @p900='?', @p901='?' (Size = 255), @p902='?', @p903='?' (Size = 4000), @p904='?' (Size = 255), @p905='?', @p906='?' (Size = 255), @p907='?' (Size = 255), @p908='?', @p909='?', @p910='?' (Size = 255), @p911='?', @p912='?' (Size = 4000), @p913='?' (Size = 255), @p914='?', @p915='?' (Size = 255), @p916='?' (Size = 255), @p917='?', @p918='?', @p919='?' (Size = 255), @p920='?', @p921='?' (Size = 4000), @p922='?' (Size = 255), @p923='?', @p924='?' (Size = 255), @p925='?' (Size = 255), @p926='?', @p927='?', @p928='?' (Size = 255), @p929='?', @p930='?' (Size = 4000), @p931='?' (Size = 255), @p932='?', @p933='?' (Size = 255), @p934='?' (Size = 255), @p935='?', @p936='?', @p937='?' (Size = 255)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [AdvertistmentPages] ([Id], [Name], [UniqueCode])
+VALUES (@p0, @p1, @p2),
+(@p3, @p4, @p5),
+(@p6, @p7, @p8);
+INSERT INTO [Contacts] ([Id], [Address], [Email], [Lat], [Lng], [Name], [Other], [Phone], [Status], [Website])
+VALUES (@p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+INSERT INTO [Footers] ([Id], [Content], [Status])
+VALUES (@p19, @p20, @p21);
+INSERT INTO [Functions] ([Id], [CssClass], [Name], [ParentId], [SortOrder], [Status], [UniqueCode], [Url])
+VALUES (@p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29),
+(@p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37),
+(@p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45),
+(@p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53),
+(@p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61),
+(@p62, @p63, @p64, @p65, @p66, @p67, @p68, @p69),
+(@p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77),
+(@p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85),
+(@p86, @p87, @p88, @p89, @p90, @p91, @p92, @p93),
+(@p94, @p95, @p96, @p97, @p98, @p99, @p100, @p101),
+(@p102, @p103, @p104, @p105, @p106, @p107, @p108, @p109),
+(@p110, @p111, @p112, @p113, @p114, @p115, @p116, @p117),
+(@p118, @p119, @p120, @p121, @p122, @p123, @p124, @p125),
+(@p126, @p127, @p128, @p129, @p130, @p131, @p132, @p133),
+(@p134, @p135, @p136, @p137, @p138, @p139, @p140, @p141),
+(@p142, @p143, @p144, @p145, @p146, @p147, @p148, @p149),
+(@p150, @p151, @p152, @p153, @p154, @p155, @p156, @p157),
+(@p158, @p159, @p160, @p161, @p162, @p163, @p164, @p165),
+(@p166, @p167, @p168, @p169, @p170, @p171, @p172, @p173),
+(@p174, @p175, @p176, @p177, @p178, @p179, @p180, @p181),
+(@p182, @p183, @p184, @p185, @p186, @p187, @p188, @p189),
+(@p190, @p191, @p192, @p193, @p194, @p195, @p196, @p197),
+(@p198, @p199, @p200, @p201, @p202, @p203, @p204, @p205),
+(@p206, @p207, @p208, @p209, @p210, @p211, @p212, @p213),
+(@p214, @p215, @p216, @p217, @p218, @p219, @p220, @p221),
+(@p222, @p223, @p224, @p225, @p226, @p227, @p228, @p229),
+(@p230, @p231, @p232, @p233, @p234, @p235, @p236, @p237),
+(@p238, @p239, @p240, @p241, @p242, @p243, @p244, @p245);
+INSERT INTO [ProductCategories] ([Id], [Code], [CreatedDate], [CurrentIdentity], [DeletedDate], [Description], [HomeFlag], [HomeOrder], [Image], [MetaDescription], [MetaKeywords], [Name], [PageAlias], [PageTitle], [ParentId], [RelCanonical], [SortOrder], [Status], [UpdatedDate])
+VALUES (@p246, @p247, @p248, @p249, @p250, @p251, @p252, @p253, @p254, @p255, @p256, @p257, @p258, @p259, @p260, @p261, @p262, @p263, @p264),
+(@p265, @p266, @p267, @p268, @p269, @p270, @p271, @p272, @p273, @p274, @p275, @p276, @p277, @p278, @p279, @p280, @p281, @p282, @p283),
+(@p284, @p285, @p286, @p287, @p288, @p289, @p290, @p291, @p292, @p293, @p294, @p295, @p296, @p297, @p298, @p299, @p300, @p301, @p302),
+(@p303, @p304, @p305, @p306, @p307, @p308, @p309, @p310, @p311, @p312, @p313, @p314, @p315, @p316, @p317, @p318, @p319, @p320, @p321);
+INSERT INTO [Products] ([Id], [CategoryId], [Code], [Content], [CreatedDate], [DeletedDate], [Description], [HomeFlag], [HotFlag], [Image], [MetaDescription], [MetaKeywords], [Name], [OriginalPrice], [PageAlias], [PageTitle], [Price], [PromotionPrice], [Status], [Tags], [Unit], [UpdatedDate], [ViewCount])
+VALUES (@p322, @p323, @p324, @p325, @p326, @p327, @p328, @p329, @p330, @p331, @p332, @p333, @p334, @p335, @p336, @p337, @p338, @p339, @p340, @p341, @p342, @p343, @p344),
+(@p345, @p346, @p347, @p348, @p349, @p350, @p351, @p352, @p353, @p354, @p355, @p356, @p357, @p358, @p359, @p360, @p361, @p362, @p363, @p364, @p365, @p366, @p367),
+(@p368, @p369, @p370, @p371, @p372, @p373, @p374, @p375, @p376, @p377, @p378, @p379, @p380, @p381, @p382, @p383, @p384, @p385, @p386, @p387, @p388, @p389, @p390),
+(@p391, @p392, @p393, @p394, @p395, @p396, @p397, @p398, @p399, @p400, @p401, @p402, @p403, @p404, @p405, @p406, @p407, @p408, @p409, @p410, @p411, @p412, @p413),
+(@p414, @p415, @p416, @p417, @p418, @p419, @p420, @p421, @p422, @p423, @p424, @p425, @p426, @p427, @p428, @p429, @p430, @p431, @p432, @p433, @p434, @p435, @p436),
+(@p437, @p438, @p439, @p440, @p441, @p442, @p443, @p444, @p445, @p446, @p447, @p448, @p449, @p450, @p451, @p452, @p453, @p454, @p455, @p456, @p457, @p458, @p459),
+(@p460, @p461, @p462, @p463, @p464, @p465, @p466, @p467, @p468, @p469, @p470, @p471, @p472, @p473, @p474, @p475, @p476, @p477, @p478, @p479, @p480, @p481, @p482),
+(@p483, @p484, @p485, @p486, @p487, @p488, @p489, @p490, @p491, @p492, @p493, @p494, @p495, @p496, @p497, @p498, @p499, @p500, @p501, @p502, @p503, @p504, @p505),
+(@p506, @p507, @p508, @p509, @p510, @p511, @p512, @p513, @p514, @p515, @p516, @p517, @p518, @p519, @p520, @p521, @p522, @p523, @p524, @p525, @p526, @p527, @p528),
+(@p529, @p530, @p531, @p532, @p533, @p534, @p535, @p536, @p537, @p538, @p539, @p540, @p541, @p542, @p543, @p544, @p545, @p546, @p547, @p548, @p549, @p550, @p551),
+(@p552, @p553, @p554, @p555, @p556, @p557, @p558, @p559, @p560, @p561, @p562, @p563, @p564, @p565, @p566, @p567, @p568, @p569, @p570, @p571, @p572, @p573, @p574),
+(@p575, @p576, @p577, @p578, @p579, @p580, @p581, @p582, @p583, @p584, @p585, @p586, @p587, @p588, @p589, @p590, @p591, @p592, @p593, @p594, @p595, @p596, @p597),
+(@p598, @p599, @p600, @p601, @p602, @p603, @p604, @p605, @p606, @p607, @p608, @p609, @p610, @p611, @p612, @p613, @p614, @p615, @p616, @p617, @p618, @p619, @p620),
+(@p621, @p622, @p623, @p624, @p625, @p626, @p627, @p628, @p629, @p630, @p631, @p632, @p633, @p634, @p635, @p636, @p637, @p638, @p639, @p640, @p641, @p642, @p643),
+(@p644, @p645, @p646, @p647, @p648, @p649, @p650, @p651, @p652, @p653, @p654, @p655, @p656, @p657, @p658, @p659, @p660, @p661, @p662, @p663, @p664, @p665, @p666),
+(@p667, @p668, @p669, @p670, @p671, @p672, @p673, @p674, @p675, @p676, @p677, @p678, @p679, @p680, @p681, @p682, @p683, @p684, @p685, @p686, @p687, @p688, @p689),
+(@p690, @p691, @p692, @p693, @p694, @p695, @p696, @p697, @p698, @p699, @p700, @p701, @p702, @p703, @p704, @p705, @p706, @p707, @p708, @p709, @p710, @p711, @p712),
+(@p713, @p714, @p715, @p716, @p717, @p718, @p719, @p720, @p721, @p722, @p723, @p724, @p725, @p726, @p727, @p728, @p729, @p730, @p731, @p732, @p733, @p734, @p735),
+(@p736, @p737, @p738, @p739, @p740, @p741, @p742, @p743, @p744, @p745, @p746, @p747, @p748, @p749, @p750, @p751, @p752, @p753, @p754, @p755, @p756, @p757, @p758),
+(@p759, @p760, @p761, @p762, @p763, @p764, @p765, @p766, @p767, @p768, @p769, @p770, @p771, @p772, @p773, @p774, @p775, @p776, @p777, @p778, @p779, @p780, @p781);
+INSERT INTO [Settings] ([Id], [BooleanValue], [DateValue], [DecimalValue], [Description], [IntegerValue], [Name], [Status], [TextValue], [UniqueCode])
+VALUES (@p782, @p783, @p784, @p785, @p786, @p787, @p788, @p789, @p790, @p791),
+(@p792, @p793, @p794, @p795, @p796, @p797, @p798, @p799, @p800, @p801),
+(@p802, @p803, @p804, @p805, @p806, @p807, @p808, @p809, @p810, @p811);
+INSERT INTO [Slides] ([Id], [Content], [Description], [GroupAlias], [Image], [Name], [SortOrder], [Status], [Url])
+VALUES (@p812, @p813, @p814, @p815, @p816, @p817, @p818, @p819, @p820),
+(@p821, @p822, @p823, @p824, @p825, @p826, @p827, @p828, @p829),
+(@p830, @p831, @p832, @p833, @p834, @p835, @p836, @p837, @p838),
+(@p839, @p840, @p841, @p842, @p843, @p844, @p845, @p846, @p847),
+(@p848, @p849, @p850, @p851, @p852, @p853, @p854, @p855, @p856),
+(@p857, @p858, @p859, @p860, @p861, @p862, @p863, @p864, @p865),
+(@p866, @p867, @p868, @p869, @p870, @p871, @p872, @p873, @p874),
+(@p875, @p876, @p877, @p878, @p879, @p880, @p881, @p882, @p883),
+(@p884, @p885, @p886, @p887, @p888, @p889, @p890, @p891, @p892),
+(@p893, @p894, @p895, @p896, @p897, @p898, @p899, @p900, @p901),
+(@p902, @p903, @p904, @p905, @p906, @p907, @p908, @p909, @p910),
+(@p911, @p912, @p913, @p914, @p915, @p916, @p917, @p918, @p919),
+(@p920, @p921, @p922, @p923, @p924, @p925, @p926, @p927, @p928),
+(@p929, @p930, @p931, @p932, @p933, @p934, @p935, @p936, @p937);" (0723d8ff)
+2018-05-17T04:59:37.2754791+07:00 0HLDRF18D2AN2:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/   (ca22a1cb)
+2018-05-17T04:59:38.0327171+07:00 0HLDRF18D2AN2:00000001 [INF] Authorization failed for user: null. (a4ab1676)
+2018-05-17T04:59:38.0494453+07:00 0HLDRF18D2AN2:00000001 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2018-05-17T04:59:38.0644446+07:00 0HLDRF18D2AN2:00000001 [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2018-05-17T04:59:38.0782541+07:00 0HLDRF18D2AN2:00000001 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2018-05-17T04:59:38.0883660+07:00 0HLDRF18D2AN2:00000001 [INF] Executed action "AspNetCore.Controllers.HomeController.Index (AspNetCore)" in 68.0806ms (afa2e885)
+2018-05-17T04:59:38.1097764+07:00 0HLDRF18D2AN2:00000001 [INF] Request finished in 897.3225ms 302  (791a596a)
+2018-05-17T04:59:38.1373295+07:00 0HLDRF18D2AN2:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Account/Login?ReturnUrl=%2F   (ca22a1cb)
+2018-05-17T04:59:38.2456237+07:00 0HLDRF18D2AN2:00000002 [INF] Executing action method "AspNetCore.Controllers.AccountController.Login (AspNetCore)" with arguments (["/"]) - ModelState is Valid (ba7f4ac2)
+2018-05-17T04:59:38.2552395+07:00 0HLDRF18D2AN2:00000002 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-05-17T04:59:41.3148854+07:00 0HLDRF18D2AN2:00000002 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-17T04:59:42.0541584+07:00 0HLDRF18D2AN2:00000002 [INF] Executed action "AspNetCore.Controllers.AccountController.Login (AspNetCore)" in 3858.0963ms (afa2e885)
+2018-05-17T04:59:42.0606935+07:00 0HLDRF18D2AN2:00000002 [INF] Request finished in 3925.5989ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-17T05:01:06.5788644+07:00 0HLDRF18D2AN3:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:5624/Account/Login?returnurl=%2F application/x-www-form-urlencoded 232 (ca22a1cb)
+2018-05-17T05:01:06.6326096+07:00 0HLDRF18D2AN3:00000001 [INF] Executing action method "AspNetCore.Controllers.AccountController.Login (AspNetCore)" with arguments (["AspNetCore.Models.AccountViewModels.LoginViewModel", "/"]) - ModelState is Valid (ba7f4ac2)
+2018-05-17T05:01:06.6560334+07:00 0HLDRF18D2AN3:00000001 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-17T05:01:06.6646668+07:00 0HLDRF18D2AN3:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Address], [u].[Avatar], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[CreatedDate], [u].[DeletedDate], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[Gender], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UpdatedDate], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-17T05:01:06.7274030+07:00 0HLDRF18D2AN3:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-05-17T05:01:06.7683599+07:00 0HLDRF18D2AN3:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-17T05:01:06.7752452+07:00 0HLDRF18D2AN3:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-17T05:01:06.7928072+07:00 0HLDRF18D2AN3:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-05-17T05:01:06.7973577+07:00 0HLDRF18D2AN3:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-17T05:01:06.8044450+07:00 0HLDRF18D2AN3:00000001 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-05-17T05:01:06.8084902+07:00 0HLDRF18D2AN3:00000001 [INF] User logged in. (fdce0db4)
+2018-05-17T05:01:06.8129319+07:00 0HLDRF18D2AN3:00000001 [INF] Executing RedirectResult, redirecting to "/". (d98d540e)
+2018-05-17T05:01:06.8164092+07:00 0HLDRF18D2AN3:00000001 [INF] Executed action "AspNetCore.Controllers.AccountController.Login (AspNetCore)" in 207.8215ms (afa2e885)
+2018-05-17T05:01:06.8214179+07:00 0HLDRF18D2AN3:00000001 [INF] Request finished in 244.2148ms 302  (791a596a)
+2018-05-17T05:01:06.8342163+07:00 0HLDRF18D2AN3:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/   (ca22a1cb)
+2018-05-17T05:01:06.8421965+07:00 0HLDRF18D2AN3:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-17T05:01:06.8469621+07:00 0HLDRF18D2AN3:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-05-17T05:01:06.8504817+07:00 0HLDRF18D2AN3:00000002 [INF] Executing action method "AspNetCore.Controllers.HomeController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-17T05:01:06.9842857+07:00 0HLDRF18D2AN3:00000002 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-17T05:01:07.0060156+07:00 0HLDRF18D2AN3:00000002 [INF] Executed action "AspNetCore.Controllers.HomeController.Index (AspNetCore)" in 158.697ms (afa2e885)
+2018-05-17T05:01:07.0098065+07:00 0HLDRF18D2AN3:00000002 [INF] Request finished in 175.5631ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-17T05:01:07.0327126+07:00 0HLDRF18D2AN3:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5624/lib/bootstrap/dist/css/bootstrap.css   (ca22a1cb)
+2018-05-17T05:01:07.0382381+07:00 0HLDRF18D2AN4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/lib/bootstrap/dist/js/bootstrap.js   (ca22a1cb)
+2018-05-17T05:01:07.0658372+07:00 0HLDRF18D2AN3:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-17T05:01:07.0678361+07:00 0HLDRF18D2AN4:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-17T05:01:07.0793762+07:00 0HLDRF18D2AN3:00000003 [INF] The file "/lib/bootstrap/dist/css/bootstrap.css" was not modified (f1f8d725)
+2018-05-17T05:01:07.0811568+07:00 0HLDRF18D2AN4:00000001 [INF] The file "/lib/bootstrap/dist/js/bootstrap.js" was not modified (f1f8d725)
+2018-05-17T05:01:07.0942290+07:00 0HLDRF18D2AN4:00000001 [INF] Request finished in 48.052ms 304 application/javascript (791a596a)
+2018-05-17T05:01:07.1009997+07:00 0HLDRF18D2AN3:00000003 [INF] Request finished in 54.2866ms 304 text/css (791a596a)
+2018-05-17T05:01:08.7412995+07:00 0HLDRF18D2AN4:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:5624/Account/Logout application/x-www-form-urlencoded 225 (ca22a1cb)
+2018-05-17T05:01:08.7459950+07:00 0HLDRF18D2AN4:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-17T05:01:08.7550570+07:00 0HLDRF18D2AN4:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-05-17T05:01:08.7589588+07:00 0HLDRF18D2AN4:00000002 [INF] Executing action method "AspNetCore.Controllers.AccountController.Logout (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-17T05:01:08.7648366+07:00 0HLDRF18D2AN4:00000002 [INF] AuthenticationScheme: "Identity.Application" signed out. (d3f50c8d)
+2018-05-17T05:01:08.7685406+07:00 0HLDRF18D2AN4:00000002 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-05-17T05:01:08.7722873+07:00 0HLDRF18D2AN4:00000002 [INF] AuthenticationScheme: "Identity.TwoFactorUserId" signed out. (d3f50c8d)
+2018-05-17T05:01:08.7754542+07:00 0HLDRF18D2AN4:00000002 [INF] User logged out. (f9c27106)
+2018-05-17T05:01:08.7801008+07:00 0HLDRF18D2AN4:00000002 [INF] Executing RedirectResult, redirecting to "/". (d98d540e)
+2018-05-17T05:01:08.7843359+07:00 0HLDRF18D2AN4:00000002 [INF] Executed action "AspNetCore.Controllers.AccountController.Logout (AspNetCore)" in 29.8073ms (afa2e885)
+2018-05-17T05:01:08.7902692+07:00 0HLDRF18D2AN4:00000002 [INF] Request finished in 50.2025ms 302  (791a596a)
+2018-05-17T05:01:08.7984847+07:00 0HLDRF18D2AN3:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5624/   (ca22a1cb)
+2018-05-17T05:01:08.8024506+07:00 0HLDRF18D2AN3:00000004 [INF] Authorization failed for user: null. (a4ab1676)
+2018-05-17T05:01:08.8066258+07:00 0HLDRF18D2AN3:00000004 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2018-05-17T05:01:08.8104747+07:00 0HLDRF18D2AN3:00000004 [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2018-05-17T05:01:08.8142251+07:00 0HLDRF18D2AN3:00000004 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2018-05-17T05:01:08.8175866+07:00 0HLDRF18D2AN3:00000004 [INF] Executed action "AspNetCore.Controllers.HomeController.Index (AspNetCore)" in 15.4969ms (afa2e885)
+2018-05-17T05:01:08.8230719+07:00 0HLDRF18D2AN3:00000004 [INF] Request finished in 22.9832ms 302  (791a596a)
+2018-05-17T05:01:08.8296300+07:00 0HLDRF18D2AN4:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Account/Login?ReturnUrl=%2F   (ca22a1cb)
+2018-05-17T05:01:08.8338242+07:00 0HLDRF18D2AN4:00000003 [INF] Executing action method "AspNetCore.Controllers.AccountController.Login (AspNetCore)" with arguments (["/"]) - ModelState is Valid (ba7f4ac2)
+2018-05-17T05:01:08.8376246+07:00 0HLDRF18D2AN4:00000003 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-05-17T05:01:08.8410038+07:00 0HLDRF18D2AN4:00000003 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-17T05:01:08.8474556+07:00 0HLDRF18D2AN4:00000003 [INF] Executed action "AspNetCore.Controllers.AccountController.Login (AspNetCore)" in 13.6794ms (afa2e885)
+2018-05-17T05:01:08.8520792+07:00 0HLDRF18D2AN4:00000003 [INF] Request finished in 21.6005ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-17T05:01:10.4917578+07:00 0HLDRF18D2AN3:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Account/Login   (ca22a1cb)
+2018-05-17T05:01:10.4960317+07:00 0HLDRF18D2AN3:00000005 [INF] Executing action method "AspNetCore.Controllers.AccountController.Login (AspNetCore)" with arguments ([""]) - ModelState is Valid (ba7f4ac2)
+2018-05-17T05:01:10.5000370+07:00 0HLDRF18D2AN3:00000005 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-05-17T05:01:10.5054853+07:00 0HLDRF18D2AN3:00000005 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-17T05:01:10.5114243+07:00 0HLDRF18D2AN3:00000005 [INF] Executed action "AspNetCore.Controllers.AccountController.Login (AspNetCore)" in 15.7514ms (afa2e885)
+2018-05-17T05:01:10.5167121+07:00 0HLDRF18D2AN3:00000005 [INF] Request finished in 26.4425ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-17T05:16:51.1186627+07:00  [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-17T05:16:51.9462870+07:00  [INF] Executed DbCommand ("33"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppRoles] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T05:16:52.0601552+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppUsers] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T05:16:52.0914882+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Functions] AS [f])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T05:16:52.2279709+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Contacts] AS [x]
+WHERE [x].[Id] = 'default'" (0723d8ff)
+2018-05-17T05:16:52.2868586+07:00  [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Footers] AS [x]
+WHERE [x].[Id] = 'default'" (0723d8ff)
+2018-05-17T05:16:52.3158042+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AdvertistmentPages] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T05:16:52.3431003+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Slides] AS [s])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T05:16:52.3670294+07:00  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ProductCategories] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T05:16:52.4061078+07:00  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeTitle')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T05:16:52.4374691+07:00  [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeMetaKeyword')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T05:16:52.4699101+07:00  [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeMetaDescription')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-17T05:16:53.2681816+07:00 0HLDRFAT4MQSI:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/   (ca22a1cb)
+2018-05-17T05:16:53.8780241+07:00 0HLDRFAT4MQSI:00000001 [INF] Authorization failed for user: null. (a4ab1676)
+2018-05-17T05:16:53.8861833+07:00 0HLDRFAT4MQSI:00000001 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2018-05-17T05:16:53.8951148+07:00 0HLDRFAT4MQSI:00000001 [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2018-05-17T05:16:53.9017357+07:00 0HLDRFAT4MQSI:00000001 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2018-05-17T05:16:53.9083980+07:00 0HLDRFAT4MQSI:00000001 [INF] Executed action "AspNetCore.Controllers.HomeController.Index (AspNetCore)" in 35.1317ms (afa2e885)
+2018-05-17T05:16:53.9172642+07:00 0HLDRFAT4MQSI:00000001 [INF] Request finished in 721.1332ms 302  (791a596a)
+2018-05-17T05:16:53.9402340+07:00 0HLDRFAT4MQSI:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Account/Login?ReturnUrl=%2F   (ca22a1cb)
+2018-05-17T05:16:54.0025132+07:00 0HLDRFAT4MQSI:00000002 [INF] Executing action method "AspNetCore.Controllers.AccountController.Login (AspNetCore)" with arguments (["/"]) - ModelState is Valid (ba7f4ac2)
+2018-05-17T05:16:54.0109782+07:00 0HLDRFAT4MQSI:00000002 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-05-17T05:16:56.9293856+07:00 0HLDRFAT4MQSI:00000002 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-17T05:16:57.6532692+07:00 0HLDRFAT4MQSI:00000002 [INF] Executed action "AspNetCore.Controllers.AccountController.Login (AspNetCore)" in 3684.9168ms (afa2e885)
+2018-05-17T05:16:57.6605859+07:00 0HLDRFAT4MQSI:00000002 [INF] Request finished in 3721.5216ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-17T05:16:57.7294396+07:00 0HLDRFAT4MQSI:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5624/lib/jquery/dist/jquery.js   (ca22a1cb)
+2018-05-17T05:16:57.7310326+07:00 0HLDRFAT4MQSJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/css/site.css   (ca22a1cb)
+2018-05-17T05:16:57.7394139+07:00 0HLDRFAT4MQSK:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/js/site.js?v=ji3-IxbEzYWjzzLCGkF1KDjrT2jLbbrSYXw-AhMPNIA   (ca22a1cb)
+2018-05-17T05:16:57.7683969+07:00 0HLDRFAT4MQSL:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2018-05-17T05:16:57.7696199+07:00 0HLDRFAT4MQSM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2018-05-17T05:16:57.7990857+07:00 0HLDRFAT4MQSM:00000001 [INF] The file "/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" was not modified (f1f8d725)
+2018-05-17T05:16:57.8267743+07:00 0HLDRFAT4MQSJ:00000001 [INF] The file "/css/site.css" was not modified (f1f8d725)
+2018-05-17T05:16:57.8497489+07:00 0HLDRFAT4MQSL:00000001 [INF] The file "/lib/jquery-validation/dist/jquery.validate.js" was not modified (f1f8d725)
+2018-05-17T05:16:57.8509419+07:00 0HLDRFAT4MQSK:00000001 [INF] The file "/js/site.js" was not modified (f1f8d725)
+2018-05-17T05:16:57.8521880+07:00 0HLDRFAT4MQSI:00000003 [INF] The file "/lib/jquery/dist/jquery.js" was not modified (f1f8d725)
+2018-05-17T05:16:57.8666856+07:00 0HLDRFAT4MQSM:00000001 [INF] Request finished in 118.924ms 304 application/javascript (791a596a)
+2018-05-17T05:16:57.8964080+07:00 0HLDRFAT4MQSJ:00000001 [INF] Request finished in 152.4813ms 304 text/css (791a596a)
+2018-05-17T05:16:57.9015021+07:00 0HLDRFAT4MQSI:00000003 [INF] Request finished in 157.5512ms 304 application/javascript (791a596a)
+2018-05-17T05:16:57.9146642+07:00 0HLDRFAT4MQSK:00000001 [INF] Request finished in 121.2448ms 304 application/javascript (791a596a)
+2018-05-17T05:16:57.9214531+07:00 0HLDRFAT4MQSL:00000001 [INF] Request finished in 118.924ms 304 application/javascript (791a596a)
+2018-05-17T05:17:01.5333684+07:00 0HLDRFAT4MQSM:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/lib/bootstrap/dist/css/bootstrap.css.map   (ca22a1cb)
+2018-05-17T05:17:01.5392689+07:00 0HLDRFAT4MQSM:00000002 [INF] The file "/lib/bootstrap/dist/css/bootstrap.css.map" was not modified (f1f8d725)
+2018-05-17T05:17:01.5434494+07:00 0HLDRFAT4MQSM:00000002 [INF] Request finished in 9.9997ms 304 text/plain (791a596a)
+2018-05-17T05:17:06.6414561+07:00 0HLDRFAT4MQSI:00000004 [INF] Request starting HTTP/1.1 POST http://localhost:5624/Account/Login?returnurl=%2F application/x-www-form-urlencoded 232 (ca22a1cb)
+2018-05-17T05:17:06.6803596+07:00 0HLDRFAT4MQSI:00000004 [INF] Executing action method "AspNetCore.Controllers.AccountController.Login (AspNetCore)" with arguments (["AspNetCore.Models.AccountViewModels.LoginViewModel", "/"]) - ModelState is Valid (ba7f4ac2)
+2018-05-17T05:17:06.6884268+07:00 0HLDRFAT4MQSI:00000004 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-17T05:17:06.7614792+07:00 0HLDRFAT4MQSI:00000004 [INF] Executed DbCommand ("36"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Address], [u].[Avatar], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[CreatedDate], [u].[DeletedDate], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[Gender], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UpdatedDate], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-17T05:17:06.8842714+07:00 0HLDRFAT4MQSI:00000004 [INF] Executed DbCommand ("7"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-05-17T05:17:06.9216407+07:00 0HLDRFAT4MQSI:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-17T05:17:06.9361502+07:00 0HLDRFAT4MQSI:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-17T05:17:06.9575319+07:00 0HLDRFAT4MQSI:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-05-17T05:17:06.9631782+07:00 0HLDRFAT4MQSI:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-17T05:17:06.9702679+07:00 0HLDRFAT4MQSI:00000004 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-05-17T05:17:06.9742749+07:00 0HLDRFAT4MQSI:00000004 [INF] User logged in. (fdce0db4)
+2018-05-17T05:17:06.9787519+07:00 0HLDRFAT4MQSI:00000004 [INF] Executing RedirectResult, redirecting to "/". (d98d540e)
+2018-05-17T05:17:06.9827498+07:00 0HLDRFAT4MQSI:00000004 [INF] Executed action "AspNetCore.Controllers.AccountController.Login (AspNetCore)" in 328.6373ms (afa2e885)
+2018-05-17T05:17:06.9873053+07:00 0HLDRFAT4MQSI:00000004 [INF] Request finished in 346.6066ms 302  (791a596a)
+2018-05-17T05:17:06.9957293+07:00 0HLDRFAT4MQSJ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/   (ca22a1cb)
+2018-05-17T05:17:07.0032234+07:00 0HLDRFAT4MQSJ:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-17T05:17:07.0077234+07:00 0HLDRFAT4MQSJ:00000002 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-05-17T05:17:07.0111720+07:00 0HLDRFAT4MQSJ:00000002 [INF] Executing action method "AspNetCore.Controllers.HomeController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-17T05:17:07.1689211+07:00 0HLDRFAT4MQSJ:00000002 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-17T05:17:07.1915993+07:00 0HLDRFAT4MQSJ:00000002 [INF] Executed action "AspNetCore.Controllers.HomeController.Index (AspNetCore)" in 183.5643ms (afa2e885)
+2018-05-17T05:17:07.1963235+07:00 0HLDRFAT4MQSJ:00000002 [INF] Request finished in 199.9192ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-17T05:17:07.2195690+07:00 0HLDRFAT4MQSL:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/images/banner1.svg   (ca22a1cb)
+2018-05-17T05:17:07.2245761+07:00 0HLDRFAT4MQSL:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-17T05:17:07.2300791+07:00 0HLDRFAT4MQSL:00000002 [INF] The file "/images/banner1.svg" was not modified (f1f8d725)
+2018-05-17T05:17:07.2585493+07:00 0HLDRFAT4MQSK:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/images/banner4.svg   (ca22a1cb)
+2018-05-17T05:17:07.3065637+07:00 0HLDRFAT4MQSL:00000002 [INF] Request finished in 15.2255ms 304 image/svg+xml (791a596a)
+2018-05-17T05:17:07.3151843+07:00 0HLDRFAT4MQSI:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:5624/images/banner3.svg   (ca22a1cb)
+2018-05-17T05:17:07.3208646+07:00 0HLDRFAT4MQSK:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-17T05:17:07.3289939+07:00 0HLDRFAT4MQSI:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-17T05:17:07.3800652+07:00 0HLDRFAT4MQSM:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5624/images/banner2.svg   (ca22a1cb)
+2018-05-17T05:17:07.4055872+07:00 0HLDRFAT4MQSK:00000002 [INF] The file "/images/banner4.svg" was not modified (f1f8d725)
+2018-05-17T05:17:07.4286489+07:00 0HLDRFAT4MQSI:00000005 [INF] The file "/images/banner3.svg" was not modified (f1f8d725)
+2018-05-17T05:17:07.4362584+07:00 0HLDRFAT4MQSJ:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5624/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2   (ca22a1cb)
+2018-05-17T05:17:07.4633311+07:00 0HLDRFAT4MQSK:00000002 [INF] Request finished in 164.1035ms 304 image/svg+xml (791a596a)
+2018-05-17T05:17:07.4675273+07:00 0HLDRFAT4MQSJ:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-17T05:17:07.5005558+07:00 0HLDRFAT4MQSI:00000005 [INF] Request finished in 186.7185ms 304 image/svg+xml (791a596a)
+2018-05-17T05:17:07.5016069+07:00 0HLDRFAT4MQSM:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-17T05:17:07.5241290+07:00 0HLDRFAT4MQSJ:00000003 [INF] The file "/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" was not modified (f1f8d725)
+2018-05-17T05:17:07.5911127+07:00 0HLDRFAT4MQSM:00000003 [INF] The file "/images/banner2.svg" was not modified (f1f8d725)
+2018-05-17T05:17:07.6155888+07:00 0HLDRFAT4MQSJ:00000003 [INF] Request finished in 238.771ms 304 font/woff2 (791a596a)
+2018-05-17T05:17:07.6396078+07:00 0HLDRFAT4MQSM:00000003 [INF] Request finished in 349.5338ms 304 image/svg+xml (791a596a)
