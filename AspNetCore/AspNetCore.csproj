@@ -34,7 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Components\" />
     <Folder Include="Logs\" />
   </ItemGroup>
 

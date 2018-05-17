@@ -23,8 +23,6 @@
     <Compile Remove="Systems\AuditLogs\IAuditLogService.cs" />
     <Compile Remove="Systems\Commons\CommonService.cs" />
     <Compile Remove="Systems\Commons\ICommonService.cs" />
-    <Compile Remove="Systems\Functions\FunctionService.cs" />
-    <Compile Remove="Systems\Functions\IFunctionService.cs" />
     <Compile Remove="Systems\Permissions\IPermissionService.cs" />
     <Compile Remove="Systems\Permissions\PermissionService.cs" />
     <Compile Remove="Systems\Roles\IRoleService.cs" />

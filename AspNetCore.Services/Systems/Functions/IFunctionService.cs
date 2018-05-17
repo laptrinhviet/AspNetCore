@@ -1,31 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using AspNetCore.Data.Entities;
 using AspNetCore.Services.Systems.Functions.Dtos;
 
 namespace AspNetCore.Services.Systems.Functions
 {
-    public interface IFunctionService
+    public interface IFunctionService : IWebServiceBase<Function, Guid, FunctionViewModel>
     {
-        void Add(MenuViewModel function);
+        //void Add(FunctionViewModel function);
 
-        Task<List<MenuViewModel>> GetAll(string filter);
+        //void Update(FunctionViewModel function);
 
-        Task<List<MenuViewModel>> GetAllWithPermission(string userName);
+        //void Delete(Guid id);
 
-        IEnumerable<MenuViewModel> GetAllWithParentId(string parentId);
+        //FunctionViewModel GetById(Guid id);
 
-        MenuViewModel GetById(string id);
+        Task<List<FunctionViewModel>> GetAll(string filter);
 
-        void Update(MenuViewModel function);
+        Task<List<FunctionViewModel>> GetAllWithPermission(string userName);
 
-        void Delete(string id);
+        IEnumerable<FunctionViewModel> GetAllWithParentId(Guid? parentId);        
 
-        void Save();
+        bool CheckExistedId(Guid id);
 
-        bool CheckExistedId(string id);
+        void UpdateParentId(Guid sourceId, Guid targetId, Dictionary<Guid, int> items);
 
-        void UpdateParentId(string sourceId, string targetId, Dictionary<string, int> items);
-
-        void ReOrder(string sourceId, string targetId);
+        void ReOrder(Guid sourceId, Guid targetId);
     }
 }

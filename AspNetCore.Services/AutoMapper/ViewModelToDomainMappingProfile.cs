@@ -64,8 +64,8 @@ namespace AspNetCore.Services.AutoMapper
             //CreateMap<TagViewModel, Tag>()
             //   .ConstructUsing(c => new Tag(c.Id, c.Name, c.Type));      
 
-            CreateMap<FunctionViewModel, Function>()
-               .ConstructUsing(c => new Function(c.Name, c.Url, c.ParentId, c.CssClass, c.SortOrder));
+            //CreateMap<FunctionViewModel, Function>()
+            //   .ConstructUsing(c => new Function(c.Name, c.Url, c.ParentId, c.CssClass, c.SortOrder));
 
             CreateMap<PermissionViewModel, Permission>()
            .ConstructUsing(c => new Permission(c.RoleId, c.FunctionId, c.CanCreate, c.CanRead, c.CanUpdate, c.CanDelete));
@@ -105,8 +105,8 @@ namespace AspNetCore.Services.AutoMapper
             CreateMap<FeedbackViewModel, Feedback>()
                .ConstructUsing(c => new Feedback(c.Id, c.Name, c.Phone, c.Email, c.Address, c.Message, c.Status));
 
-            CreateMap<MenuViewModel, Menu>()
-               .ConstructUsing(c => new Menu(c.ParentId, c.Name, c.Url, c.Css, c.SortOrder, c.Status));
+            //CreateMap<MenuViewModel, Menu>()
+            //   .ConstructUsing(c => new Menu(c.ParentId, c.Name, c.Url, c.Css, c.SortOrder, c.Status));
 
             //CreateMap<LanguageViewModel, Language>()
             //   .ConstructUsing(c => new Language(c.Name, c.IsDefault, c.Resources, c.Status));

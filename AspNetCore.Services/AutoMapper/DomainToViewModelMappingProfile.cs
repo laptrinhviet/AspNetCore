@@ -40,7 +40,7 @@ namespace AspNetCore.Services.AutoMapper
             CreateMap<ProductTag, ProductTagViewModel>().MaxDepth(2);
             CreateMap<PostTag, PostTagViewModel>().MaxDepth(2);
             CreateMap<Tag, TagViewModel>().MaxDepth(2);
-            CreateMap<Function, MenuViewModel>().MaxDepth(2);
+            CreateMap<Function, FunctionViewModel>().MaxDepth(2);
             CreateMap<Permission, PermissionViewModel>().MaxDepth(2);
             CreateMap<Slide, SlideViewModel>().MaxDepth(2);
             CreateMap<Page, PageViewModel>().MaxDepth(2);
@@ -53,7 +53,7 @@ namespace AspNetCore.Services.AutoMapper
             CreateMap<Setting, SystemConfigViewModel>().MaxDepth(2);
             CreateMap<Footer, FooterViewModel>().MaxDepth(2);
             CreateMap<Feedback, FeedbackViewModel>().MaxDepth(2);
-            CreateMap<Menu, MenuViewModel>().MaxDepth(2);
+            //CreateMap<Menu, MenuViewModel>().MaxDepth(2);
             CreateMap<Language, LanguageViewModel>().MaxDepth(2);
             CreateMap<Announcement, AnnouncementViewModel>().MaxDepth(2);
             CreateMap<AnnouncementUser, AnnouncementUserViewModel>().MaxDepth(2);

@@ -21,7 +21,7 @@ namespace AspNetCore.Authorization
         protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context,
             OperationAuthorizationRequirement requirement, string resource)
         {
-            var roles = ((ClaimsIdentity)context.User.Identity).Claims.FirstOrDefault(x => x.Type == CommonConstants.UserClaim.Roles);
+            var roles = ((ClaimsIdentity)context.User.Identity).Claims.FirstOrDefault(x => x.Type == CommonConstants.UserClaims.Roles);
             if (roles != null)
             {
                 var listRole = roles.Value.Split(";");

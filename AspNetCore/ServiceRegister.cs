@@ -19,7 +19,7 @@ namespace AspNetCore
     {
         public static void Register(IServiceCollection services)
         {
-            //services.AddTransient<IFunctionService, FunctionService>();
+            services.AddTransient<IFunctionService, FunctionService>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             //services.AddTransient<IPostService, PostService>();

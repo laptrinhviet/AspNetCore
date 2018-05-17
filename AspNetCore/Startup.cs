@@ -34,6 +34,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AspNetCore.Helpers;
+//using AspNetCore.Authorization;
 
 namespace AspNetCore
 {
@@ -174,8 +175,6 @@ namespace AspNetCore
             //    SiteKey = Configuration["Recaptcha:SiteKey"],
             //    SecretKey = Configuration["Recaptcha:SecretKey"]
             //});         
-
-            //services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
 
             //Register for service

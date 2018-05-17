@@ -7,7 +7,6 @@ using System.Linq;
 using AspNetCore.Services.Dtos;
 using AspNetCore.Services.ECommerce.Products.Dtos;
 using AspNetCore.Data.Entities;
-
 using AspNetCore.Infrastructure.Enums;
 using AspNetCore.Infrastructure.Interfaces;
 using AspNetCore.Utilities.Constants;
@@ -82,16 +81,14 @@ namespace AspNetCore.Services.ECommerce.Products
 
                     ProductTag productTag = new ProductTag
                     {
+                        Id = Guid.NewGuid(),
+                        ProductId = product.Id,
                         TagId = tagId
                     };
                     
                     _productTagRepository.Insert(productTag);
                     //product.ProductTags.Add(productTag);
-                    //var query = from p in _productRepository.GetAll()
-                    //            join pt in _productTagRepository.GetAll()
-                    //            on p.Id equals pt.ProductId
-                    //            where pt.TagId == tagId
-                    //            select p;
+                   
                 }
             }
                 _productRepository.Insert(product);

@@ -27,6 +27,6 @@ namespace AspNetCore.Services.Systems.Permissions.Dtos
 
         public AppRoleViewModel AppRole { get; set; }
 
-        public MenuViewModel Function { get; set; }
+        public FunctionViewModel Function { get; set; }
     }
 }
