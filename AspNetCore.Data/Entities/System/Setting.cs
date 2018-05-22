@@ -18,17 +18,21 @@ namespace AspNetCore.Data.Entities
 
         }
 
-        public Setting(string name, string textValue, string uniqueCode, Status status)
+        public Setting(string uniqueCode, string name, string textValue, Status status)
         {
-            Name = name;
-            TextValue = textValue;
             UniqueCode = uniqueCode;
+            Name = name;
+            TextValue = textValue;            
             Status = status;
         }
-
-        [Required]
+      
         [StringLength(128)]
+        [Required]
         public string Name { get; set; }
+
+        [StringLength(128)]
+        [Required]
+        public string UniqueCode { get; set; }
 
         public string TextValue { get; set; }
 
@@ -40,10 +44,7 @@ namespace AspNetCore.Data.Entities
 
         public decimal? DecimalValue { get; set; }
 
-        public string Description { set; get; }
-
-        [StringLength(255)]
-        public string UniqueCode { get; set; }
+        public string Description { set; get; }        
 
         public Status Status { get; set; }
     }

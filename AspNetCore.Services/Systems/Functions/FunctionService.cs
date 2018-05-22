@@ -39,7 +39,7 @@ namespace AspNetCore.Services.Systems.Functions
             _roleManager = roleManager;
             //_mapper = mapper;
         }
-
+        
         public override void Add(FunctionViewModel functionVm)
         {
 
@@ -61,7 +61,35 @@ namespace AspNetCore.Services.Systems.Functions
             //var function = _functionRepository.FindSingle(x => x.Id == id);
             var function = _functionRepository.Single(x => x.Id == id);
             return Mapper.Map<Function, FunctionViewModel>(function);
-        }    
+        }
+   
+        //public override List<FunctionViewModel> GetAll()
+        //{
+        //    return _functionRepository.GetAll().OrderBy(x => x.ParentId)
+        //        .ProjectTo<FunctionViewModel>()
+        //        .ToList();
+        //}
+
+        //public PagedResult<FunctionViewModel> GetAllPaging(string keyword, int pageSize, int page = 1)
+        //{
+        //    var query = _functionRepository.GetAll();
+        //    if (!string.IsNullOrEmpty(keyword))
+        //        query = query.Where(x => x.Name.Contains(keyword));
+
+        //    int totalRow = query.Count();
+        //    var data = query.OrderByDescending(x => x.CreatedDate)
+        //        .Skip((page - 1) * pageSize)
+        //        .Take(pageSize);
+        //    var paginationSet = new PagedResult<FunctionViewModel>()
+        //    {
+        //        Results = data.ProjectTo<FunctionViewModel>().ToList(),
+        //        CurrentPage = page,
+        //        RowCount = totalRow,
+        //        PageSize = pageSize,
+        //    };
+        //    return paginationSet;
+        //}
+
         public Task<List<FunctionViewModel>> GetAll(string filter)
         {
             var query = _functionRepository.GetAll().Where(x => x.Status == Status.Actived);
