@@ -3,54 +3,58 @@ using AutoMapper.QueryableExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using AspNetCore.Services.Content.Feedbacks.Dtos;
 using AspNetCore.Data.Entities;
 using AspNetCore.Infrastructure.Interfaces;
 using AspNetCore.Utilities.Dtos;
+using AspNetCore.Services.Content.Feedbacks.Dtos;
+using AspNetCore.Services.Content.Feedbacks;
 
 namespace AspNetCore.Services.Content.Feedbacks
 {
-    public class FeedbackService : IFeedbackService
+    public class FeedbackService : WebServiceBase<Feedback, Guid, FeedbackViewModel>, IFeedbackService
     {
-        private IRepository<Feedback, int> _feedbackRepository;
-        private IUnitOfWork _unitOfWork;
+        private readonly IRepository<Feedback, Guid> _feedbackRepository;
 
-        public FeedbackService(IRepository<Feedback, int> feedbackRepository,
-            IUnitOfWork unitOfWork)
+        public FeedbackService(IRepository<Feedback, Guid> feedbackRepository,
+            IUnitOfWork unitOfWork) : base(feedbackRepository, unitOfWork)
         {
             _feedbackRepository = feedbackRepository;
-            _unitOfWork = unitOfWork;
         }
 
-        public void Add(FeedbackViewModel feedbackVm)
+        public override void Add(FeedbackViewModel feedbackVm)
         {
-            var page = Mapper.Map<FeedbackViewModel, Feedback>(feedbackVm);
-            _feedbackRepository.Add(page);
+            var feedback = Mapper.Map<FeedbackViewModel, Feedback>(feedbackVm);
+            _feedbackRepository.Insert(feedback);
+        }
+        public override void Update(FeedbackViewModel feedbackVm)
+        {
+            var feedback = Mapper.Map<FeedbackViewModel, Feedback>(feedbackVm);
+            _feedbackRepository.Update(feedback);
         }
 
-        public void Delete(int id)
+        public override void Delete(Guid id)
         {
-            _feedbackRepository.Remove(id);
+            _feedbackRepository.Delete(id);
         }
 
-        public void Dispose()
+        public override FeedbackViewModel GetById(Guid id)
         {
-            GC.SuppressFinalize(this);
+            return Mapper.Map<Feedback, FeedbackViewModel>(_feedbackRepository.GetById(id));
         }
 
-        public List<FeedbackViewModel> GetAll()
+        public override List<FeedbackViewModel> GetAll()
         {
-            return _feedbackRepository.FindAll().ProjectTo<FeedbackViewModel>().ToList();
+            return _feedbackRepository.GetAll().OrderBy(x => x.CreatedDate).ProjectTo<FeedbackViewModel>().ToList();
         }
 
         public PagedResult<FeedbackViewModel> GetAllPaging(string keyword, int page, int pageSize)
         {
-            var query = _feedbackRepository.FindAll();
+            var query = _feedbackRepository.GetAll();
             if (!string.IsNullOrEmpty(keyword))
                 query = query.Where(x => x.Name.Contains(keyword));
 
             int totalRow = query.Count();
-            var data = query.OrderByDescending(x => x.DateCreated)
+            var data = query.OrderByDescending(x => x.CreatedDate)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize);
 
@@ -65,20 +69,5 @@ namespace AspNetCore.Services.Content.Feedbacks
             return paginationSet;
         }
 
-        public FeedbackViewModel GetById(int id)
-        {
-            return Mapper.Map<Feedback, FeedbackViewModel>(_feedbackRepository.FindById(id));
-        }
-
-        public void SaveChanges()
-        {
-            _unitOfWork.Commit();
-        }
-
-        public void Update(FeedbackViewModel feedbackVm)
-        {
-            var page = Mapper.Map<FeedbackViewModel, Feedback>(feedbackVm);
-            _feedbackRepository.Update(page);
-        }
     }
 }

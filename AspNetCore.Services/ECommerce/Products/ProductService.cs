@@ -93,7 +93,6 @@ namespace AspNetCore.Services.ECommerce.Products
             }
                 _productRepository.Insert(product);
         }
-
         public override void Update(ProductViewModel productVm)
         {
             var product = Mapper.Map<ProductViewModel, Product>(productVm);
@@ -115,6 +114,8 @@ namespace AspNetCore.Services.ECommerce.Products
                     }
                     ProductTag productTag = new ProductTag
                     {
+                        Id = Guid.NewGuid(),
+                        ProductId = product.Id,
                         TagId = tagId
                     };
                     _productTagRepository.Insert(productTag);
@@ -123,21 +124,51 @@ namespace AspNetCore.Services.ECommerce.Products
             }
             _productRepository.Update(product);
         }
-
-        //public List<ProductViewModel> GetAll()
+        //
+        //public override void Delete(Guid id)
         //{
+        //    _productRepository.Delete(id);
+        //}
+
+        //public override ProductViewModel GetById(Guid id)
+        //{
+        //    return Mapper.Map<Product, ProductViewModel>(_productRepository.GetById(id));
+        //}
+
+        //public override List<ProductViewModel> GetAll()
+        //{
+        //    return _productRepository.GetAll().OrderBy(c => c.ProductTags)
         //    return _productRepository.FindAll(c => c.ProductCategory, c => c.ProductTags)
         //        .ProjectTo<ProductViewModel>().ToList();
         //}
 
-        public PagedResult<ProductViewModel> GetAllPaging(Guid? categoryId, string keyword, int page, int pageSize, string sortBy)
+        //public PagedResult<ProductViewModel> GetAllPaging(string keyword, int pageSize, int page = 1)
+        //{
+        //    var query = _productRepository.FindAll();
+        //    if (!string.IsNullOrEmpty(keyword))
+        //        query = query.Where(x => x.Name.Contains(keyword));
+        //    int totalRow = query.Count();
+        //    var data = query.OrderByDescending(x => x.CreatedDate)
+        //        .Skip((page - 1) * pageSize)
+        //        .Take(pageSize);
+        //    var paginationSet = new PagedResult<ProductViewModel>()
+        //    {
+        //        Results = data.ProjectTo<ProductViewModel>().ToList(),
+        //        CurrentPage = page,
+        //        RowCount = totalRow,
+        //        PageSize = pageSize,
+        //    };
+        //    return paginationSet;
+        //}
+
+        public PagedResult<ProductViewModel> GetAllPaging(Guid categoryId, string keyword, int page, int pageSize, string sortBy)
         {
             var query = _productRepository.GetAll().Where(c => c.Status == Status.Actived);
             if (!string.IsNullOrEmpty(keyword))
                 query = query.Where(x => x.Name.Contains(keyword) || x.Code.Contains(keyword));
 
-            if (categoryId.HasValue)
-                query = query.Where(x => x.CategoryId == categoryId.Value);
+            if (categoryId!=null)
+                query = query.Where(x => x.CategoryId == categoryId);
 
             int totalRow = query.Count();
             switch (sortBy)
@@ -172,23 +203,6 @@ namespace AspNetCore.Services.ECommerce.Products
 
             return paginationSet;
         }
-   
-    
-        public List<ProductViewModel> GetLastest(int top)
-        {
-            return _productRepository.GetAll().Where(x => x.Status == Status.Actived).OrderByDescending(x => x.CreatedDate)
-                .Take(top).ProjectTo<ProductViewModel>().ToList();
-        }
-
-        public List<ProductViewModel> GetHotProduct(int top)
-        {
-            return _productRepository.GetAll().Where(x => x.Status == Status.Actived && x.HotFlag == true)
-                .OrderByDescending(x => x.CreatedDate)
-                .Take(top)
-                .ProjectTo<ProductViewModel>()
-                .ToList();
-        }
-
         public List<ProductViewModel> GetListProductByCategoryIdPaging(Guid categoryId, int page, int pageSize, string sort, out int totalRow)
         {
             var query = _productRepository.GetAll().Where(x => x.Status == Status.Actived && x.CategoryId == categoryId);
@@ -217,6 +231,61 @@ namespace AspNetCore.Services.ECommerce.Products
             return query.Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ProjectTo<ProductViewModel>().ToList();
+        }
+        public List<ProductViewModel> GetListPaging(int page, int pageSize, string sort, out int totalRow)
+        {
+            var query = _productRepository.GetAll().Where(x => x.Status == Status.Actived);
+
+            switch (sort)
+            {
+                case "popular":
+                    query = query.OrderByDescending(x => x.ViewCount);
+                    break;
+
+                default:
+                    query = query.OrderByDescending(x => x.CreatedDate);
+                    break;
+            }
+
+            totalRow = query.Count();
+
+            return query.Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ProjectTo<ProductViewModel>().ToList();
+        }
+        public List<ProductViewModel> GetListProductByTag(string tagId, int page, int pageSize, out int totalRow)
+        {
+            var query = from p in _productRepository.GetAll()
+                        join pt in _productTagRepository.GetAll()
+                        on p.Id equals pt.ProductId
+                        where pt.TagId == tagId
+                        select p;
+            totalRow = query.Count();
+
+            var model = query.OrderByDescending(x => x.CreatedDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize).ProjectTo<ProductViewModel>();
+            return model.ToList();
+        }
+        public PagedResult<ProductViewModel> GetMyWishlist(Guid userId, int page, int pageSize)
+        {
+            //var query = _productWishlistRepository.FindAll(c => c.UserId == userId, i => i.Product).Select(x => x.Product);
+            var query = _productWishlistRepository.GetAll().Where(c => c.UserId == userId);
+            int totalRow = query.Count();
+
+            query = query.Skip((page - 1) * pageSize)
+                .Take(pageSize);
+
+            var data = query.ProjectTo<ProductViewModel>().ToList();
+            var paginationSet = new PagedResult<ProductViewModel>()
+            {
+                Results = data,
+                CurrentPage = page,
+                RowCount = totalRow,
+                PageSize = pageSize
+            };
+
+            return paginationSet;
         }
         public List<ProductViewModel> Search(string keyword, int page, int pageSize, string sort, out int totalRow)
         {
@@ -258,6 +327,24 @@ namespace AspNetCore.Services.ECommerce.Products
                 query = _productRepository.GetAll().ProjectTo<ProductViewModel>();
             return query.ToList();
         }
+        public List<string> GetListProductByName(string name)
+        {
+            return _productRepository.GetAll().Where(x => x.Status == Status.Actived
+            && x.Name.Contains(name)).Select(y => y.Name).ToList();
+        }
+        public List<ProductViewModel> GetLastest(int top)
+        {
+            return _productRepository.GetAll().Where(x => x.Status == Status.Actived).OrderByDescending(x => x.CreatedDate)
+                .Take(top).ProjectTo<ProductViewModel>().ToList();
+        }
+        public List<ProductViewModel> GetHotProduct(int top)
+        {
+            return _productRepository.GetAll().Where(x => x.Status == Status.Actived && x.HotFlag == true)
+                .OrderByDescending(x => x.CreatedDate)
+                .Take(top)
+                .ProjectTo<ProductViewModel>()
+                .ToList();
+        }
         public List<ProductViewModel> GetReatedProducts(Guid id, int top)
         {
             var product = _productRepository.GetById(id);
@@ -268,25 +355,13 @@ namespace AspNetCore.Services.ECommerce.Products
             .ProjectTo<ProductViewModel>()
             .ToList();
         }
-        public List<string> GetListProductByName(string name)
+        public List<ProductViewModel> GetUpsellProducts(int top)
         {
-            return _productRepository.GetAll().Where(x => x.Status == Status.Actived
-            && x.Name.Contains(name)).Select(y => y.Name).ToList();
+            return _productRepository.GetAll().Where(x => x.PromotionPrice != null)
+                .OrderByDescending(x => x.UpdatedDate)
+                .Take(top)
+                .ProjectTo<ProductViewModel>().ToList();
         }
-
-        //public List<TagViewModel> GetListTagByProductId(Guid id)
-        //{
-        //    return _productTagRepository.FindAll(x => x.ProductId == id, c => c.Tag)
-        //        .Select(y => y.Tag)
-        //        .ProjectTo<TagViewModel>()
-        //        .ToList();
-        //}
-
-        public TagViewModel GetTag(string tagId)
-        {
-            return Mapper.Map<Tag, TagViewModel>(_tagRepository.Single(x => x.Id == tagId));
-        }
-
         public void IncreaseView(Guid id)
         {
             var product = _productRepository.GetById(id);
@@ -295,25 +370,78 @@ namespace AspNetCore.Services.ECommerce.Products
             else
                 product.ViewCount = 1;
         }
-
-        public List<ProductViewModel> GetListProductByTag(string tagId, int page, int pageSize, out int totalRow)
+        public List<TagViewModel> GetListTagByProductId(Guid id)
         {
-            var query = from p in _productRepository.GetAll()
-                        join pt in _productTagRepository.GetAll()
-                        on p.Id equals pt.ProductId
-                        where pt.TagId == tagId
-                        select p;
-            totalRow = query.Count();
-
-            var model = query.OrderByDescending(x => x.CreatedDate)
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize).ProjectTo<ProductViewModel>();
-            return model.ToList();
-        }
+            //return _productTagRepository.FindAll(x => x.ProductId == id, c => c.Tag)
+            //    .Select(y => y.Tag)
+            //    .ProjectTo<TagViewModel>()
+            //    .ToList();
+            throw new NotImplementedException();
+        }       
         public List<TagViewModel> GetListProductTag(string searchText)
         {
             return _tagRepository.GetAll(x => x.Type == CommonConstants.ProductTag
             && searchText.Contains(x.Name)).ProjectTo<TagViewModel>().ToList();
+        }
+        public TagViewModel GetTag(string tagId)
+        {
+            return Mapper.Map<Tag, TagViewModel>(_tagRepository.Single(x => x.Id == tagId));
+        }
+        public List<ProductImageViewModel> GetImages(Guid productId)
+        {
+            //return _productImageRepository.FindAll(x => x.ProductId == productId)
+            return _productImageRepository.GetAll().Where(x => x.ProductId == productId)
+                .ProjectTo<ProductImageViewModel>().ToList();
+        }
+        public bool SellProduct(Guid productId, int quantity)
+        {
+            //var product = _productRepository.FindById(productId);
+            var product = _productRepository.GetById(productId);
+
+            //if (product.Quantity < quantity)
+            //    return false;
+            //product.Quantity -= quantity;
+
+            return true;
+        }
+        public void AddQuantity(Guid productId, List<ProductQuantityViewModel> quantities)
+        {
+            //_productQuantityRepository.RemoveMultiple(_productQuantityRepository.FindAll(x => x.ProductId == productId).ToList());
+            _productQuantityRepository.Delete(x => x.ProductId == productId);
+            foreach (var quantity in quantities)
+            {
+                _productQuantityRepository.Insert(new ProductQuantity()
+                {
+                    ProductId = productId,
+                    ColorId = quantity.ColorId,
+                    SizeId = quantity.SizeId,
+                    Quantity = quantity.Quantity
+                });
+            }
+        }
+        public List<ProductQuantityViewModel> GetQuantities(Guid productId)
+        {
+            //return _productQuantityRepository.FindAll(x => x.ProductId == productId).ProjectTo<ProductQuantityViewModel>().ToList();
+            return _productQuantityRepository.GetAll().Where(x => x.ProductId == productId).ProjectTo<ProductQuantityViewModel>().ToList();
+        }
+        public void AddWholePrice(Guid productId, List<WholePriceViewModel> wholePrices)
+        {
+            _wholePriceRepository.Delete(x => x.ProductId == productId);
+            //_wholePriceRepository.RemoveMultiple(_wholePriceRepository.FindAll(x => x.ProductId == productId).ToList());
+            foreach (var wholePrice in wholePrices)
+            {
+                _wholePriceRepository.Insert(new WholePrice()
+                {
+                    ProductId = productId,
+                    FromQuantity = wholePrice.FromQuantity,
+                    ToQuantity = wholePrice.ToQuantity,
+                    Price = wholePrice.Price
+                });
+            }
+        }
+        public List<WholePriceViewModel> GetWholePrices(Guid productId)
+        {
+            return _wholePriceRepository.GetAll().Where(x => x.ProductId == productId).ProjectTo<WholePriceViewModel>().ToList();
         }
         public void ImportExcel(string filePath, Guid categoryId)
         {
@@ -362,94 +490,7 @@ namespace AspNetCore.Services.ECommerce.Products
                 });
             }
         }
-        public List<ProductImageViewModel> GetImages(Guid productId)
-        {
-            //return _productImageRepository.FindAll(x => x.ProductId == productId)
-            return _productImageRepository.GetAll().Where(x => x.ProductId == productId)
-                .ProjectTo<ProductImageViewModel>().ToList();
-        }
-        public List<ProductViewModel> GetUpsellProducts(int top)
-        {
-            return _productRepository.GetAll().Where(x => x.PromotionPrice != null)
-                .OrderByDescending(x => x.UpdatedDate)
-                .Take(top)
-                .ProjectTo<ProductViewModel>().ToList();
-        }
-        public PagedResult<ProductViewModel> GetMyWishlist(Guid userId, int page, int pageSize)
-        {
-            //var query = _productWishlistRepository.FindAll(c => c.UserId == userId, i => i.Product).Select(x => x.Product);
-            var query = _productWishlistRepository.GetAll().Where(c => c.UserId == userId);
-            int totalRow = query.Count();
-
-            query = query.Skip((page - 1) * pageSize)
-                .Take(pageSize);
-
-            var data = query.ProjectTo<ProductViewModel>().ToList();
-            var paginationSet = new PagedResult<ProductViewModel>()
-            {
-                Results = data,
-                CurrentPage = page,
-                RowCount = totalRow,
-                PageSize = pageSize
-            };
-
-            return paginationSet;
-        }
-        //Selling product
-        public bool SellProduct(Guid productId, int quantity)
-        {
-            //var product = _productRepository.FindById(productId);
-            var product = _productRepository.GetById(productId);
-
-            //if (product.Quantity < quantity)
-            //    return false;
-            //product.Quantity -= quantity;
-
-            return true;
-        }
-        public void AddQuantity(Guid productId, List<ProductQuantityViewModel> quantities)
-        {
-            //_productQuantityRepository.RemoveMultiple(_productQuantityRepository.FindAll(x => x.ProductId == productId).ToList());
-            _productQuantityRepository.Delete(x => x.ProductId == productId);
-            foreach (var quantity in quantities)
-            {
-                _productQuantityRepository.Insert(new ProductQuantity()
-                {
-                    ProductId = productId,
-                    ColorId = quantity.ColorId,
-                    SizeId = quantity.SizeId,
-                    Quantity = quantity.Quantity
-                });
-            }
-        }
-        public List<ProductQuantityViewModel> GetQuantities(Guid productId)
-        {
-            //return _productQuantityRepository.FindAll(x => x.ProductId == productId).ProjectTo<ProductQuantityViewModel>().ToList();
-            return _productQuantityRepository.GetAll().Where(x => x.ProductId == productId).ProjectTo<ProductQuantityViewModel>().ToList();
-        }       
-        public void AddWholePrice(Guid productId, List<WholePriceViewModel> wholePrices)
-        {
-            _wholePriceRepository.Delete(x => x.ProductId == productId);
-            //_wholePriceRepository.RemoveMultiple(_wholePriceRepository.FindAll(x => x.ProductId == productId).ToList());
-            foreach (var wholePrice in wholePrices)
-            {
-                _wholePriceRepository.Insert(new WholePrice()
-                {
-                    ProductId = productId,
-                    FromQuantity = wholePrice.FromQuantity,
-                    ToQuantity = wholePrice.ToQuantity,
-                    Price = wholePrice.Price
-                });
-            }
-        }
-        public List<WholePriceViewModel> GetWholePrices(Guid productId)
-        {
-            return _wholePriceRepository.GetAll().Where(x => x.ProductId == productId).ProjectTo<WholePriceViewModel>().ToList();
-        }
-
-        public List<TagViewModel> GetListTagByProductId(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+        
+    
     }
 }

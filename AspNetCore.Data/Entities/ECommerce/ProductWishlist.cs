@@ -25,14 +25,14 @@ namespace AspNetCore.Data.Entities
 
         public Guid UserId { get; set; }
 
-        [ForeignKey("UserId")]
-        public virtual AppUser AppUser { get; set; }
-
-        [ForeignKey("ProductId")]
-        public virtual Product Product { set; get; }
-
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public DateTime? DeletedDate { set; get; }
+
+        //[ForeignKey("UserId")]
+        //public virtual AppUser AppUser { get; set; }
+
+        //[ForeignKey("ProductId")]
+        //public virtual Product Product { set; get; }
     }
 }

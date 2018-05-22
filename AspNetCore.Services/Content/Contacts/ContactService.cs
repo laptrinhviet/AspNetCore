@@ -8,46 +8,49 @@ using AspNetCore.Data.Entities;
 
 using AspNetCore.Infrastructure.Interfaces;
 using AspNetCore.Utilities.Dtos;
-using RicoCore.Services.Content.Contacts;
+
 
 namespace AspNetCore.Services.Content.Contacts
 {
-    public class ContactService : IContactService
+    public class ContactService : WebServiceBase<Contact, string, ContactViewModel>, IContactService
     {
-        private IRepository<Contact, string> _pageRepository;
-        private IUnitOfWork _unitOfWork;
-
-        public ContactService(IRepository<Contact, string> pageRepository,
-            IUnitOfWork unitOfWork)
+        private readonly IRepository<Contact, string> _contactRepository;
+       
+        public ContactService(IRepository<Contact, string> contactRepository,
+            IUnitOfWork unitOfWork) : base(contactRepository, unitOfWork)
         {
-            this._pageRepository = pageRepository;
-            this._unitOfWork = unitOfWork;
+            _contactRepository = contactRepository;          
         }
 
-        public void Add(ContactViewModel pageVm)
+        public override void Add(ContactViewModel contactVm)
         {
-            var page = Mapper.Map<ContactViewModel, Contact>(pageVm);
-            _pageRepository.Add(page);
+            var contact = Mapper.Map<ContactViewModel, Contact>(contactVm);
+            _contactRepository.Insert(contact);
+        }
+        public override void Update(ContactViewModel contactVm)
+        {
+            var contact = Mapper.Map<ContactViewModel, Contact>(contactVm);
+            _contactRepository.Update(contact);
         }
 
-        public void Delete(string id)
+        public override void Delete(string id)
         {
-            _pageRepository.Remove(id);
+            _contactRepository.Delete(id);
         }
 
-        public void Dispose()
+        public override ContactViewModel GetById(string id)
         {
-            GC.SuppressFinalize(this);
+            return Mapper.Map<Contact, ContactViewModel>(_contactRepository.GetById(id));
         }
 
-        public List<ContactViewModel> GetAll()
+        public override List<ContactViewModel> GetAll()
         {
-            return _pageRepository.FindAll().ProjectTo<ContactViewModel>().ToList();
+            return _contactRepository.GetAll().OrderBy(x=>x.Id).ProjectTo<ContactViewModel>().ToList();
         }
 
         public PagedResult<ContactViewModel> GetAllPaging(string keyword, int page, int pageSize)
         {
-            var query = _pageRepository.FindAll();
+            var query = _contactRepository.GetAll();
             if (!string.IsNullOrEmpty(keyword))
                 query = query.Where(x => x.Name.Contains(keyword));
 
@@ -65,22 +68,7 @@ namespace AspNetCore.Services.Content.Contacts
             };
 
             return paginationSet;
-        }
-
-        public ContactViewModel GetById(string id)
-        {
-            return Mapper.Map<Contact, ContactViewModel>(_pageRepository.FindById(id));
-        }
-
-        public void SaveChanges()
-        {
-            _unitOfWork.Commit();
-        }
-
-        public void Update(ContactViewModel pageVm)
-        {
-            var page = Mapper.Map<ContactViewModel, ContactDetail>(pageVm);
-            _pageRepository.Update(page);
-        }
+        }      
+        
     }
 }

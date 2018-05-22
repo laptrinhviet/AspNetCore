@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using AspNetCore.Data.Entities;
 using AspNetCore.Services.Systems.Permissions.Dtos;
 using AspNetCore.Services.Systems.Roles.Dtos;
 using AspNetCore.Utilities.Dtos;
 
 namespace AspNetCore.Services.Systems.Roles
 {
-    public interface IRoleService
+    public interface IRoleService : IWebServiceBase<AppRole, Guid, AppRoleViewModel>
     {
         Task<bool> AddAsync(AppRoleViewModel userVm);
 
-        Task DeleteAsync(string id);
+        Task DeleteAsync(Guid id);
 
         Task<List<AppRoleViewModel>> GetAllAsync();
 
         PagedResult<AppRoleViewModel> GetAllPagingAsync(string keyword, int page, int pageSize);
 
-        Task<AppRoleViewModel> GetById(string id);
+        Task<AppRoleViewModel> GetById(Guid id);
 
 
         Task UpdateAsync(AppRoleViewModel userVm);
@@ -27,6 +28,6 @@ namespace AspNetCore.Services.Systems.Roles
 
         void SavePermission(List<PermissionViewModel> permissions, Guid roleId);
 
-        Task<bool> CheckPermission(string functionId, string action, string[] roles);
+        Task<bool> CheckPermission(Guid functionId, string action, string[] roles);
     }
 }

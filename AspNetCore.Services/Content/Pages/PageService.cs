@@ -8,50 +8,63 @@ using AspNetCore.Services.Content.Pages.Dtos;
 using AspNetCore.Data.Entities;
 using AspNetCore.Infrastructure.Interfaces;
 using AspNetCore.Utilities.Dtos;
+using AspNetCore.Utilities.Helpers;
 
 namespace AspNetCore.Services.Implementation
 {
-    public class PageService : IPageService
+    public class PageService : WebServiceBase<Page, Guid, PageViewModel>, IPageService
     {
-        private IRepository<Page, int> _pageRepository;
-        private IUnitOfWork _unitOfWork;
+        private readonly IRepository<Page, Guid> _pageRepository;       
 
-        public PageService(IRepository<Page, int> pageRepository,
-            IUnitOfWork unitOfWork)
+        public PageService(IRepository<Page, Guid> pageRepository,
+            IUnitOfWork unitOfWork) : base(pageRepository, unitOfWork)
         {
-            this._pageRepository = pageRepository;
-            this._unitOfWork = unitOfWork;
+            _pageRepository = pageRepository;           
         }
 
-        public void Add(PageViewModel pageVm)
+        public override void Add(PageViewModel pageVm)
         {
+            if (!string.IsNullOrEmpty(pageVm.PageAlias))
+            {
+                pageVm.PageAlias = TextHelper.ToUnsignString(pageVm.Name);
+            }
             var page = Mapper.Map<PageViewModel, Page>(pageVm);
-            _pageRepository.Add(page);
+            _pageRepository.Insert(page);
         }
 
-        public void Delete(int id)
+        public override void Update(PageViewModel pageVm)
         {
-            _pageRepository.Remove(id);
+            if(!string.IsNullOrEmpty(pageVm.PageAlias))
+            {
+                pageVm.PageAlias = TextHelper.ToUnsignString(pageVm.Name);
+            }
+            var page = Mapper.Map<PageViewModel, Page>(pageVm);
+            _pageRepository.Update(page);
         }
 
-        public void Dispose()
+        public override void Delete(Guid id)
         {
-            GC.SuppressFinalize(this);
+            _pageRepository.Delete(id);
         }
 
-        public List<PageViewModel> GetAll()
+        public override PageViewModel GetById(Guid id)
         {
-            return _pageRepository.FindAll().ProjectTo<PageViewModel>().ToList();
+            return Mapper.Map<Page, PageViewModel>(_pageRepository.GetById(id));
+        }
+     
+        public override List<PageViewModel> GetAll()
+        {
+            return _pageRepository.GetAll().OrderBy(x=>x.CreatedDate).ProjectTo<PageViewModel>().ToList();
         }
 
-        public PagedResult<PageViewModel> GetAllPaging(string keyword, int page, int pageSize)
+        public PagedResult<PageViewModel> GetAllPaging(string keyword, int page, int pageSize=1)
         {
-            var query = _pageRepository.FindAll();
+            var query = _pageRepository.GetAll();
             if (!string.IsNullOrEmpty(keyword))
                 query = query.Where(x => x.Name.Contains(keyword));
 
             int totalRow = query.Count();
-            var data = query.OrderByDescending(x => x.Alias)
+            var data = query.OrderByDescending(x => x.CreatedDate)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize);
 
@@ -68,23 +81,7 @@ namespace AspNetCore.Services.Implementation
 
         public PageViewModel GetByAlias(string alias)
         {
-            return Mapper.Map<Page, PageViewModel>(_pageRepository.FindSingle(x => x.Alias == alias));
-        }
-
-        public PageViewModel GetById(int id)
-        {
-            return Mapper.Map<Page, PageViewModel>(_pageRepository.FindById(id));
-        }
-
-        public void SaveChanges()
-        {
-            _unitOfWork.Commit();
-        }
-
-        public void Update(PageViewModel pageVm)
-        {
-            var page = Mapper.Map<PageViewModel, Page>(pageVm);
-            _pageRepository.Update(page);
+            return Mapper.Map<Page, PageViewModel>(_pageRepository.Single(x => x.PageAlias == alias));
         }
     }
 }

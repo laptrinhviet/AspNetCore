@@ -7,42 +7,44 @@ using AspNetCore.Services.Systems.Settings.Dtos;
 using AspNetCore.Data.Entities;
 using AspNetCore.Infrastructure.Interfaces;
 using AspNetCore.Utilities.Constants;
+using System;
+using AspNetCore.Services.Content.Footers.Dtos;
 
 namespace AspNetCore.Services.Systems.Commons
 {
     public class CommonService : ICommonService
     {
-        private IRepository<Footer, string> _footerRepository;
-        private IRepository<Setting, string> _systemConfigRepository;
-        private IUnitOfWork _unitOfWork;
-        private IRepository<Slide, int> _slideRepository;
+        private readonly IRepository<Footer, string> _footerRepository;
+        private readonly IRepository<Setting, Guid> _systemConfigRepository;       
+        private readonly IRepository<Slide, Guid> _slideRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
         public CommonService(IRepository<Footer, string> footerRepository,
-            IRepository<Setting, string> systemConfigRepository,
-            IUnitOfWork unitOfWork,
-            IRepository<Slide, int> slideRepository)
+            IRepository<Setting, Guid> systemConfigRepository,          
+            IRepository<Slide, Guid> slideRepository,
+             IUnitOfWork unitOfWork) 
         {
-            _footerRepository = footerRepository;
-            _unitOfWork = unitOfWork;
+            _footerRepository = footerRepository;         
             _systemConfigRepository = systemConfigRepository;
             _slideRepository = slideRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public FooterViewModel GetFooter()
         {
-            return Mapper.Map<Footer, FooterViewModel>(_footerRepository.FindSingle(x => x.Id ==
+            return Mapper.Map<Footer, FooterViewModel>(_footerRepository.Single(x => x.Id ==
             CommonConstants.DefaultFooterId));
         }
 
-        public List<SlideViewModel> GetSlides(string groupAlias)
-        {
-            return _slideRepository.FindAll(x => x.Status && x.GroupAlias == groupAlias).OrderBy(x => x.DisplayOrder)
-                .ProjectTo<SlideViewModel>().ToList();
-        }
+        //public List<SlideViewModel> GetSlides(SlideGroup groupAlias)
+        //{
+        //    return _slideRepository.GetAll().Where(x => x.Status == Status.Actived && x.GroupAlias == groupAlias).OrderBy(x => x.SortOrder)
+        //        .ProjectTo<SlideViewModel>().ToList();
+        //}
 
-        public SystemConfigViewModel GetSystemConfig(string code)
-        {
-            return Mapper.Map<Setting, SystemConfigViewModel>(_systemConfigRepository.FindSingle(x => x.Id == code));
-        }
+        //public SystemConfigViewModel GetSystemConfig(string code)
+        //{
+        //    return Mapper.Map<Setting, SystemConfigViewModel>(_systemConfigRepository.Single(x => x.UniqueCode == code));
+        //}
     }
 }

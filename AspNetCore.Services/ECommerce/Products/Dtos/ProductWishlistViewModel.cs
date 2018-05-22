@@ -12,15 +12,15 @@ namespace AspNetCore.Services.ECommerce.Products.Dtos
 
         public Guid ProductId { get; set; }
 
-        public Guid UserId { get; set; }
-
-        public  AppUserViewModel AppUser { get; set; }
-
-        public  ProductViewModel Product { set; get; }
+        public Guid UserId { get; set; }     
 
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
 
         //public DateTime? DeletedDate { set; get; }
+
+        public AppUserViewModel AppUser { get; set; }
+
+        public ProductViewModel Product { set; get; }
     }
 }

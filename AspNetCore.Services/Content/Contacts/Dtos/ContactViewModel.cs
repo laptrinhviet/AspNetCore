@@ -30,6 +30,6 @@ namespace AspNetCore.Services.Content.Contacts.Dtos
         public string Other { set; get; }
         public double? Lat { set; get; }
         public double? Lng { set; get; }
-        public Status Status { set; get; }
+        public Status Status { set; get; }      
     }
 }

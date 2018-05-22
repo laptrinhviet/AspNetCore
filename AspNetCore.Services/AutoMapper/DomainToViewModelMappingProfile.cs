@@ -30,6 +30,7 @@ namespace AspNetCore.Services.AutoMapper
         {
             CreateMap<AppRole, AppRoleViewModel>().MaxDepth(2);
             CreateMap<AppUser, AppUserViewModel>().MaxDepth(2);
+            CreateMap<Function, FunctionViewModel>().MaxDepth(2);
             CreateMap<ProductCategory, ProductCategoryViewModel>().MaxDepth(2);
             CreateMap<Product, ProductViewModel>().MaxDepth(2);
             CreateMap<PostCategory, PostCategoryViewModel>().MaxDepth(2);
@@ -39,8 +40,7 @@ namespace AspNetCore.Services.AutoMapper
             CreateMap<ProductWishlist, ProductWishlistViewModel>().MaxDepth(2);
             CreateMap<ProductTag, ProductTagViewModel>().MaxDepth(2);
             CreateMap<PostTag, PostTagViewModel>().MaxDepth(2);
-            CreateMap<Tag, TagViewModel>().MaxDepth(2);
-            CreateMap<Function, FunctionViewModel>().MaxDepth(2);
+            CreateMap<Tag, TagViewModel>().MaxDepth(2);                     
             CreateMap<Permission, PermissionViewModel>().MaxDepth(2);
             CreateMap<Slide, SlideViewModel>().MaxDepth(2);
             CreateMap<Page, PageViewModel>().MaxDepth(2);

@@ -42,22 +42,43 @@ namespace AspNetCore.Services.ECommerce.ProductCategories
             var productCategory = Mapper.Map<ProductCategoryViewModel, ProductCategory>(productCategoryVm);
 
             _productCategoryRepository.Update(productCategory);
-        }      
-        public void UpdateParentId(Guid sourceId, Guid targetId, Dictionary<Guid, int> items)
-        {
-            //Update parent id for source
-            var category = _productCategoryRepository.GetById(sourceId);
-            category.ParentId = targetId;
-            _productCategoryRepository.Update(category);
-
-            //Get all sibling
-            var sibling = _productCategoryRepository.GetAll().Where(x => items.ContainsKey(x.Id));
-            foreach (var child in sibling)
-            {
-                child.SortOrder = items[child.Id];
-                _productCategoryRepository.Update(child);
-            }
         }
+
+        //public override void Delete(Guid id)
+        //{
+        //    _productCategoryRepository.Delete(id);
+        //}
+
+        //public override ProductCategoryViewModel GetById(Guid id)
+        //{
+        //    return Mapper.Map<ProductCategory, ProductCategoryViewModel>(_productCategoryRepository.GetById(id));
+        //}
+
+        //public override List<ProductCategoryViewModel> GetAll()
+        //{
+        //    return _productCategoryRepository.GetAll().OrderBy(x => x.ParentId)
+        //        .ProjectTo<ProductCategoryViewModel>()
+        //        .ToList();
+        //}
+
+        //public PagedResult<ProductCategoryViewModel> GetAllPaging(string keyword, int pageSize, int page = 1)
+        //{
+        //    var query = _productCategoryRepository.FindAll();
+        //    if (!string.IsNullOrEmpty(keyword))
+        //        query = query.Where(x => x.Name.Contains(keyword));
+        //    int totalRow = query.Count();
+        //    var data = query.OrderByDescending(x => x.CreatedDate)
+        //        .Skip((page - 1) * pageSize)
+        //        .Take(pageSize);
+        //    var paginationSet = new PagedResult<ProductCategoryViewModel>()
+        //    {
+        //        Results = data.ProjectTo<ProductCategoryViewModel>().ToList(),
+        //        CurrentPage = page,
+        //        RowCount = totalRow,
+        //        PageSize = pageSize,
+        //    };
+        //    return paginationSet;
+        //}
 
         public List<ProductCategoryViewModel> GetAll(string keyword)
         {
@@ -90,6 +111,21 @@ namespace AspNetCore.Services.ECommerce.ProductCategories
             }
             return categories;
         }
+        public void UpdateParentId(Guid sourceId, Guid targetId, Dictionary<Guid, int> items)
+        {
+            //Update parent id for source
+            var category = _productCategoryRepository.GetById(sourceId);
+            category.ParentId = targetId;
+            _productCategoryRepository.Update(category);
+
+            //Get all sibling
+            var sibling = _productCategoryRepository.GetAll().Where(x => items.ContainsKey(x.Id));
+            foreach (var child in sibling)
+            {
+                child.SortOrder = items[child.Id];
+                _productCategoryRepository.Update(child);
+            }
+        }
         public void ReOrder(Guid sourceId, Guid targetId)
         {
             var source = _productCategoryRepository.GetById(sourceId);
@@ -103,16 +139,8 @@ namespace AspNetCore.Services.ECommerce.ProductCategories
             _productCategoryRepository.Update(target);
         }
 
-        //public List<ProductCategoryViewModel> GetAll()
-        //{
-        //    return _productCategoryRepository.GetAll().OrderBy(x => x.ParentId)
-        //        .ProjectTo<ProductCategoryViewModel>()
-        //        .ToList();
-        //}
+        
 
-        //public void Save()
-        //{
-        //    _unitOfWork.Commit();
-        //}
+       
     }
 }

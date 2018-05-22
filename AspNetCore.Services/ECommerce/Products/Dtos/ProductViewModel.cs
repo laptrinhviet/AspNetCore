@@ -34,7 +34,6 @@ namespace AspNetCore.Services.ECommerce.Products.Dtos
         public int? ViewCount { get; set; }
 
         [StringLength(255)]
-        [Required]
         public string Tags { get; set; }
 
         [StringLength(255)]
@@ -47,7 +46,7 @@ namespace AspNetCore.Services.ECommerce.Products.Dtos
         public decimal Price { get; set; }
         public decimal? PromotionPrice { get; set; }
 
-        [Required]
+
         public decimal OriginalPrice { get; set; }
         public Status Status { set; get; }
 

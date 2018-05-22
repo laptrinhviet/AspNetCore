@@ -29,6 +29,8 @@ namespace AspNetCore.Services.Content.Posts.Dtos
         public string Image { set; get; }
       
         public string Content { set; get; }
+
+        [StringLength(255)]
         public string Tags { get; set; }
 
         public bool? HomeFlag { set; get; }

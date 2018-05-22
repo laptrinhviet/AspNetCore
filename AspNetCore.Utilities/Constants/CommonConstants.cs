@@ -18,7 +18,7 @@ namespace AspNetCore.Utilities.Constants
         {
             public const string Admin = "Admin";
         }
-        public class UserClaims
+        public class UserClaim
         {
             public const string Roles = "Roles";
         }

@@ -12,6 +12,7 @@ using AspNetCore.Services.ECommerce.Products;
 using AspNetCore.Services.Systems.Functions;
 using AspNetCore.Services.Systems.Roles;
 using AspNetCore.Services.Systems.Users;
+using AspNetCore.Services.Content.PostCategories;
 
 namespace AspNetCore
 {
@@ -22,7 +23,8 @@ namespace AspNetCore
             services.AddTransient<IFunctionService, FunctionService>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
-            //services.AddTransient<IPostService, PostService>();
+            services.AddTransient<IPostService, PostService>();
+            services.AddTransient<IPostCategoryService, PostCategoryService>();
             //services.AddTransient<ICommonService, CommonService>();
             //services.AddTransient<IPageService, PageService>();
             //services.AddTransient<IUserService, UserService>();

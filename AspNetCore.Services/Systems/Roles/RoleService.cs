@@ -14,17 +14,18 @@ using System;
 
 namespace AspNetCore.Services.Systems.Roles
 {
-    public class RoleService : IRoleService
+    public class RoleService : WebServiceBase<AppRole, Guid, AppRoleViewModel>, IRoleService
     {
-        private RoleManager<AppRole> _roleManager;
-        private IRepository<Function, string> _functionRepository;
-        private IRepository<Permission, int> _permissionRepository;
-        private IUnitOfWork _unitOfWork;
+        private readonly RoleManager<AppRole> _roleManager;
+        private readonly IRepository<Function, Guid> _functionRepository;
+        private readonly IRepository<Permission, Guid> _permissionRepository;
+        //private IUnitOfWork _unitOfWork;
 
-        public RoleService(RoleManager<AppRole> roleManager, IUnitOfWork unitOfWork,
-            IRepository<Function, string> functionRepository, IRepository<Permission, int> permissionRepository)
-        {
-            _unitOfWork = unitOfWork;
+        public RoleService(RoleManager<AppRole> roleManager,
+            IRepository<Function, Guid> functionRepository, 
+            IRepository<Permission, Guid> permissionRepository,
+            IUnitOfWork unitOfWork) : base (functionRepository, unitOfWork)
+        {          
             _roleManager = roleManager;
             _functionRepository = functionRepository;
             _permissionRepository = permissionRepository;
@@ -57,12 +58,15 @@ namespace AspNetCore.Services.Systems.Roles
             return query.AnyAsync();
         }
 
+       
+
         public async Task DeleteAsync(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
             await _roleManager.DeleteAsync(role);
         }
 
+      
         public async Task<List<AppRoleViewModel>> GetAllAsync()
         {
             return await _roleManager.Roles.ProjectTo<AppRoleViewModel>().ToListAsync();
@@ -140,5 +144,21 @@ namespace AspNetCore.Services.Systems.Roles
             role.Name = roleVm.Name;
             await _roleManager.UpdateAsync(role);
         }
+
+        Task<AppRoleViewModel> IRoleService.GetById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> CheckPermission(Guid functionId, string action, string[] roles)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

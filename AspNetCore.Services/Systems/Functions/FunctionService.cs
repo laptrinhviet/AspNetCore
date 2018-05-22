@@ -11,6 +11,9 @@ using AspNetCore.Infrastructure.Enums;
 using AspNetCore.Infrastructure.Interfaces;
 using System;
 using Microsoft.Extensions.Logging;
+using AspNetCore.Utilities.Constants;
+using AspNetCore.Utilities.Dtos;
+using AspNetCore.Utilities.Helpers;
 
 namespace AspNetCore.Services.Systems.Functions
 {
@@ -43,44 +46,36 @@ namespace AspNetCore.Services.Systems.Functions
             var function = Mapper.Map<FunctionViewModel,Function>(functionVm);
             _functionRepository.Insert(function);
         }
-
         public override void Update(FunctionViewModel functionVm)
         {
             var functionDb = _functionRepository.GetById(functionVm.Id);
             var function = Mapper.Map<FunctionViewModel,Function>(functionVm);
             _functionRepository.Update(function);
-        }
-
-        public bool CheckExistedId(Guid id)
-        {
-            return _functionRepository.GetById(id) != null;
-        }
-    
+        }            
         public override void Delete(Guid id)
         {
             _functionRepository.Delete(id);
         }
-
         public override FunctionViewModel GetById(Guid id)
         {
             //var function = _functionRepository.FindSingle(x => x.Id == id);
             var function = _functionRepository.Single(x => x.Id == id);
             return Mapper.Map<Function, FunctionViewModel>(function);
-        }
+        }    
         public Task<List<FunctionViewModel>> GetAll(string filter)
         {
             var query = _functionRepository.GetAll().Where(x => x.Status == Status.Actived);
             if (!string.IsNullOrEmpty(filter))
                 query = query.Where(x => x.Name.Contains(filter));
-
             return query.OrderBy(x => x.ParentId).ProjectTo<FunctionViewModel>().ToListAsync();
         }
 
-        public IEnumerable<FunctionViewModel> GetAllWithParentId(Guid? parentId)
-        {
-            return _functionRepository.GetAll().Where(x => x.ParentId == parentId).ProjectTo<FunctionViewModel>();
-        }
-
+        //public Task<List<FunctionViewModel>> GetAllList()
+        //{
+        //    var query = _functionRepository.GetAll().Where(x => x.Status == Status.Actived);
+            
+        //    return query.OrderBy(x => x.SortOrder).ProjectTo<FunctionViewModel>().ToListAsync();
+        //}
         public async Task<List<FunctionViewModel>> GetAllWithPermission(string userName)
         {
             var user = await _userManager.FindByNameAsync(userName);
@@ -98,20 +93,14 @@ namespace AspNetCore.Services.Systems.Functions
 
             return await query.OrderBy(x => x.ParentId).ProjectTo<FunctionViewModel>().ToListAsync();
         }
-
-        public void ReOrder(Guid sourceId, Guid targetId)
+        public IEnumerable<FunctionViewModel> GetAllWithParentId(Guid? parentId)
         {
-            var source = _functionRepository.GetById(sourceId);
-            var target = _functionRepository.GetById(targetId);
-            int tempOrder = source.SortOrder;
-
-            source.SortOrder = target.SortOrder;
-            target.SortOrder = tempOrder;
-
-            _functionRepository.Update(source);
-            _functionRepository.Update(target);
+            return _functionRepository.GetAll().Where(x => x.ParentId == parentId).ProjectTo<FunctionViewModel>();
         }
-
+        public bool CheckExistedId(Guid id)
+        {
+            return _functionRepository.GetById(id) != null;
+        }
         public void UpdateParentId(Guid sourceId, Guid targetId, Dictionary<Guid, int> items)
         {
             //Update parent id for source
@@ -127,20 +116,18 @@ namespace AspNetCore.Services.Systems.Functions
                 _functionRepository.Update(child);
             }
         }
+        public void ReOrder(Guid sourceId, Guid targetId)
+        {
+            var source = _functionRepository.GetById(sourceId);
+            var target = _functionRepository.GetById(targetId);
+            int tempOrder = source.SortOrder;
 
-        //public Task<List<FunctionViewModel>> GetAll(string filter)
-        //{
-        //    throw new NotImplementedException();
-        //}
+            source.SortOrder = target.SortOrder;
+            target.SortOrder = tempOrder;
 
-        //public Task<List<FunctionViewModel>> GetAllWithPermission(string userName)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public IEnumerable<FunctionViewModel> GetAllWithParentId(Guid? parentId)
-        //{
-        //    throw new NotImplementedException();
-        //}
+            _functionRepository.Update(source);
+            _functionRepository.Update(target);
+        }
+        //
     }
 }

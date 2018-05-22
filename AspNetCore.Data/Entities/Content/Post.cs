@@ -59,7 +59,6 @@ namespace AspNetCore.Data.Entities
         public Guid CategoryId { set; get; }
 
         [StringLength(255)]
-        [Required]
         public string Name { set; get; }
 
         [StringLength(255)]
@@ -72,6 +71,8 @@ namespace AspNetCore.Data.Entities
         [StringLength(255)]
         public string Image { set; get; }
         public string Content { get; set; }
+
+        [StringLength(255)]
         public string Tags { get; set; }
         public bool? HomeFlag { set; get; }
         public bool? HotFlag { set; get; }

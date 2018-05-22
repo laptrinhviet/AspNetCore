@@ -66,8 +66,7 @@ namespace AspNetCore.Data.Entities
         public string Content { get; set; }
         public int? ViewCount { get; set; }
 
-        [StringLength(255)]
-        [Required]
+        [StringLength(255)]     
         public string Tags { get; set; }
 
         [StringLength(255)]
@@ -80,7 +79,6 @@ namespace AspNetCore.Data.Entities
         public decimal Price { get; set; }
         public decimal? PromotionPrice { get; set; }
 
-        [Required]
         public decimal OriginalPrice { get; set; }
         public Status Status { set; get; }
 

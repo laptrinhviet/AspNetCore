@@ -1,23 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using AspNetCore.Data.Entities;
 using AspNetCore.Services.Content.Feedbacks.Dtos;
 using AspNetCore.Utilities.Dtos;
 
 namespace AspNetCore.Services.Content.Feedbacks
 {
-    public interface IFeedbackService
+    public interface IFeedbackService : IWebServiceBase<Feedback, Guid, FeedbackViewModel>
     {
-        void Add(FeedbackViewModel feedbackVm);
-
-        void Update(FeedbackViewModel feedbackVm);
-
-        void Delete(int id);
-
-        List<FeedbackViewModel> GetAll();
-
         PagedResult<FeedbackViewModel> GetAllPaging(string keyword, int page, int pageSize);
-
-        FeedbackViewModel GetById(int id);
-
-        void SaveChanges();
+        //
+        //void Add(FeedbackViewModel feedbackVm);
+        //void Update(FeedbackViewModel feedbackVm);    
+        //void Delete(int id);
+        //FeedbackViewModel GetById(int id);
+        //List<FeedbackViewModel> GetAll();  
     }
 }

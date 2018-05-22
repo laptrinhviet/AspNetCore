@@ -77,8 +77,8 @@ namespace AspNetCore
                 // User settings
                 options.User.RequireUniqueEmail = true;
             });
-
-            services.AddMvc();
+            services.AddAutoMapper();
+            //services.AddMvc();
 
             // SwaggerGen
             //services.AddSwaggerGen(s =>
@@ -140,8 +140,8 @@ namespace AspNetCore
             //services.AddMinResponse();
 
             //services.ConfigureApplicationCookie(options => options.LoginPath = "/dang-nhap.html");
-            
-            services.AddAutoMapper();
+
+
 
             // Add application services.
             services.AddSingleton(Mapper.Configuration);
@@ -164,7 +164,7 @@ namespace AspNetCore
 
             services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
-            //services.AddTransient<IViewRenderService, ViewRenderService>();          
+            //services.AddTransient<IViewRenderService, ViewRenderService>();
 
             //services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
