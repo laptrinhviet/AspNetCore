@@ -553,3 +553,418 @@ System.InvalidOperationException: Missing map from AspNetCore.Data.Entities.Func
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.<Invoke>d__7.MoveNext()
 2018-05-22T12:42:30.7715235+07:00 0HLDVKR35ROQE:00000003 [INF] Request finished in 878.7276ms 500 text/html; charset=utf-8 (791a596a)
+2018-05-22T21:02:32.5386441+07:00  [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T21:02:32.7711124+07:00  [INF] Executed DbCommand ("58"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppRoles] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:02:32.7988433+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppUsers] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:02:32.8161458+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Functions] AS [f])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:02:32.8516159+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Contacts] AS [x]
+WHERE [x].[Id] = 'default'" (0723d8ff)
+2018-05-22T21:02:32.8718724+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Footers] AS [x]
+WHERE [x].[Id] = 'default'" (0723d8ff)
+2018-05-22T21:02:32.8886696+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AdvertistmentPages] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:02:32.9066566+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Slides] AS [s])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:02:32.9267746+07:00  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ProductCategories] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:02:32.9482627+07:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeTitle')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:02:32.9664406+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeMetaKeyword')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:02:32.9842879+07:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeMetaDescription')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:02:33.2580566+07:00 0HLDVTIL2NHG3:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:5624/  0 (ca22a1cb)
+2018-05-22T21:02:33.2580562+07:00 0HLDVTIL2NHG4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/   (ca22a1cb)
+2018-05-22T21:02:33.2900547+07:00 0HLDVTIL2NHG3:00000001 [INF] Request finished in 94.1817ms 200  (791a596a)
+2018-05-22T21:02:33.3212621+07:00 0HLDVTIL2NHG4:00000001 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T21:02:33.4212593+07:00 0HLDVTIL2NHG4:00000001 [INF] Executed DbCommand ("65"ms) [Parameters=["@__get_Item_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[Address], [e].[Avatar], [e].[BirthDay], [e].[ConcurrencyStamp], [e].[CreatedDate], [e].[DeletedDate], [e].[Email], [e].[EmailConfirmed], [e].[FullName], [e].[Gender], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UpdatedDate], [e].[UserName]
+FROM [AppUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2018-05-22T21:02:56.1206724+07:00  [WRN] Heartbeat took longer than "00:00:01" at "05/22/2018 14:02:56 +00:00". (439152bf)
+2018-05-22T21:02:56.1277802+07:00  [WRN] Heartbeat took longer than "00:00:01" at "05/22/2018 14:02:56 +00:00". (439152bf)
+2018-05-22T21:02:56.2068986+07:00 0HLDVTIL2NHG4:00000001 [INF] Executed DbCommand ("44"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-05-22T21:02:56.3101514+07:00 0HLDVTIL2NHG4:00000001 [INF] Executed DbCommand ("19"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-22T21:02:56.3671458+07:00 0HLDVTIL2NHG4:00000001 [INF] Executed DbCommand ("41"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-22T21:02:56.4112592+07:00 0HLDVTIL2NHG4:00000001 [INF] Executed DbCommand ("26"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-05-22T21:03:10.9059286+07:00 0HLDVTIL2NHG4:00000001 [INF] Executed DbCommand ("28"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-22T21:03:21.5141487+07:00 0HLDVTIL2NHG4:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T21:03:21.6498525+07:00 0HLDVTIL2NHG4:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-05-22T21:03:21.7483882+07:00 0HLDVTIL2NHG4:00000001 [INF] Executing action method "AspNetCore.Controllers.HomeController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:03:27.7003163+07:00 0HLDVTIL2NHG4:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-22T21:03:28.9173878+07:00 0HLDVTIL2NHG4:00000001 [INF] Executed action "AspNetCore.Controllers.HomeController.Index (AspNetCore)" in 7268.7016ms (afa2e885)
+2018-05-22T21:03:28.9239558+07:00 0HLDVTIL2NHG4:00000001 [INF] Request finished in 55728.9113ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T21:03:31.2684911+07:00 0HLDVTIL2NHG3:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Admin   (ca22a1cb)
+2018-05-22T21:03:31.2757964+07:00 0HLDVTIL2NHG3:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T21:03:31.3084075+07:00 0HLDVTIL2NHG3:00000002 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.LoginController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:03:31.5841061+07:00 0HLDVTIL2NHG3:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2018-05-22T21:03:31.6170645+07:00 0HLDVTIL2NHG3:00000002 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.LoginController.Index (AspNetCore)" in 333.1589ms (afa2e885)
+2018-05-22T21:03:31.6210826+07:00 0HLDVTIL2NHG3:00000002 [INF] Request finished in 353.2356ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T21:03:32.1460119+07:00 0HLDVTIL2NHG4:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Admin   (ca22a1cb)
+2018-05-22T21:03:32.1509327+07:00 0HLDVTIL2NHG4:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T21:03:32.1761317+07:00 0HLDVTIL2NHG4:00000002 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.LoginController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:03:32.1796875+07:00 0HLDVTIL2NHG4:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2018-05-22T21:03:32.1837039+07:00 0HLDVTIL2NHG4:00000002 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.LoginController.Index (AspNetCore)" in 29.1944ms (afa2e885)
+2018-05-22T21:03:32.1877712+07:00 0HLDVTIL2NHG4:00000002 [INF] Request finished in 43.1457ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T21:03:39.3084793+07:00 0HLDVTIL2NHG3:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:5624/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 32 (ca22a1cb)
+2018-05-22T21:03:39.3123688+07:00 0HLDVTIL2NHG3:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T21:03:39.4099060+07:00 0HLDVTIL2NHG3:00000003 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.LoginController.Authen (AspNetCore)" with arguments (["AspNetCore.Models.AccountViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:03:39.4164559+07:00 0HLDVTIL2NHG3:00000003 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T21:03:39.4557954+07:00 0HLDVTIL2NHG3:00000003 [INF] Executed DbCommand ("28"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Address], [u].[Avatar], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[CreatedDate], [u].[DeletedDate], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[Gender], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UpdatedDate], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-22T21:03:44.9201442+07:00 0HLDVTIL2NHG3:00000003 [INF] Executed DbCommand ("28"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-05-22T21:03:44.9678060+07:00 0HLDVTIL2NHG3:00000003 [INF] Executed DbCommand ("24"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-22T21:03:44.9930412+07:00 0HLDVTIL2NHG3:00000003 [INF] Executed DbCommand ("21"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-22T21:03:45.0222554+07:00 0HLDVTIL2NHG3:00000003 [INF] Executed DbCommand ("25"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-05-22T21:03:45.7756177+07:00 0HLDVTIL2NHG3:00000003 [INF] Executed DbCommand ("21"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-22T21:03:49.4754562+07:00 0HLDVTIL2NHG3:00000003 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-05-22T21:03:52.6010317+07:00 0HLDVTIL2NHG3:00000003 [INF] User logged in. (fdce0db4)
+2018-05-22T21:03:54.5525153+07:00 0HLDVTIL2NHG3:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-05-22T21:04:02.2539605+07:00 0HLDVTIL2NHG3:00000003 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.LoginController.Authen (AspNetCore)" in 22901.3038ms (afa2e885)
+2018-05-22T21:04:02.2590908+07:00 0HLDVTIL2NHG3:00000003 [INF] Request finished in 22950.212ms 200 application/json; charset=utf-8 (791a596a)
+2018-05-22T21:04:02.2703148+07:00 0HLDVTIL2NHG4:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Admin/Home/Index   (ca22a1cb)
+2018-05-22T21:04:02.2757098+07:00 0HLDVTIL2NHG4:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T21:04:02.3018962+07:00 0HLDVTIL2NHG4:00000003 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.HomeController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:04:02.4639465+07:00 0HLDVTIL2NHG4:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2018-05-22T21:10:28.0493388+07:00  [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T21:10:28.3849422+07:00  [INF] Executed DbCommand ("71"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppRoles] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:10:28.4240949+07:00  [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppUsers] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:10:28.4647183+07:00  [INF] Executed DbCommand ("29"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Functions] AS [f])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:10:28.5062809+07:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Contacts] AS [x]
+WHERE [x].[Id] = 'default'" (0723d8ff)
+2018-05-22T21:10:28.5290926+07:00  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Footers] AS [x]
+WHERE [x].[Id] = 'default'" (0723d8ff)
+2018-05-22T21:10:28.5477993+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AdvertistmentPages] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:10:28.5711065+07:00  [INF] Executed DbCommand ("15"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Slides] AS [s])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:10:28.5959570+07:00  [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ProductCategories] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:10:28.6201535+07:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeTitle')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:10:28.6395667+07:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeMetaKeyword')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:10:28.6607833+07:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeMetaDescription')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:10:29.0153463+07:00 0HLDVTN2RFLA4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/   (ca22a1cb)
+2018-05-22T21:10:29.0153458+07:00 0HLDVTN2RFLA5:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:5624/  0 (ca22a1cb)
+2018-05-22T21:10:29.0209240+07:00 0HLDVTN2RFLA6:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Admin   (ca22a1cb)
+2018-05-22T21:10:29.0623237+07:00 0HLDVTN2RFLA5:00000001 [INF] Request finished in 120.8448ms 200  (791a596a)
+2018-05-22T21:10:29.1630862+07:00 0HLDVTN2RFLA6:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T21:10:29.1679412+07:00 0HLDVTN2RFLA4:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T21:10:29.4389892+07:00 0HLDVTN2RFLA4:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2018-05-22T21:10:29.5309582+07:00 0HLDVTN2RFLA6:00000001 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.LoginController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:10:29.5318454+07:00 0HLDVTN2RFLA4:00000001 [INF] Executing action method "AspNetCore.Controllers.HomeController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:10:33.5029276+07:00 0HLDVTN2RFLA6:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2018-05-22T21:10:33.5126075+07:00 0HLDVTN2RFLA4:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2018-05-22T21:10:34.1587622+07:00 0HLDVTN2RFLA6:00000001 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.LoginController.Index (AspNetCore)" in 4576.4801ms (afa2e885)
+2018-05-22T21:10:34.1722282+07:00 0HLDVTN2RFLA5:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Admin   (ca22a1cb)
+2018-05-22T21:10:34.2728482+07:00 0HLDVTN2RFLA5:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T21:10:34.2954238+07:00 0HLDVTN2RFLA6:00000001 [INF] Request finished in 5185.4569ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T21:10:34.4384798+07:00 0HLDVTN2RFLA5:00000002 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.LoginController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:10:34.4562076+07:00 0HLDVTN2RFLA5:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2018-05-22T21:10:34.5522406+07:00 0HLDVTN2RFLA5:00000002 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.LoginController.Index (AspNetCore)" in 147.8909ms (afa2e885)
+2018-05-22T21:10:34.6769860+07:00 0HLDVTN2RFLA5:00000002 [INF] Request finished in 499.8382ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T21:10:37.7294676+07:00 0HLDVTN2RFLA4:00000001 [INF] Executed action "AspNetCore.Controllers.HomeController.Index (AspNetCore)" in 8217.4119ms (afa2e885)
+2018-05-22T21:10:37.7777531+07:00 0HLDVTN2RFLA4:00000001 [INF] Request finished in 8804.7782ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T21:10:41.9523740+07:00 0HLDVTN2RFLA6:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:5624/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 32 (ca22a1cb)
+2018-05-22T21:10:41.9570649+07:00 0HLDVTN2RFLA6:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T21:10:42.0992726+07:00 0HLDVTN2RFLA6:00000002 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.LoginController.Authen (AspNetCore)" with arguments (["AspNetCore.Models.AccountViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:10:42.1138187+07:00 0HLDVTN2RFLA6:00000002 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T21:10:42.2556603+07:00 0HLDVTN2RFLA6:00000002 [INF] Executed DbCommand ("80"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Address], [u].[Avatar], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[CreatedDate], [u].[DeletedDate], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[Gender], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UpdatedDate], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-22T21:10:49.3562219+07:00 0HLDVTN2RFLA6:00000002 [INF] Executed DbCommand ("210"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-05-22T21:10:49.7932619+07:00 0HLDVTN2RFLA6:00000002 [INF] Executed DbCommand ("78"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-22T21:10:50.1728285+07:00 0HLDVTN2RFLA6:00000002 [INF] Executed DbCommand ("295"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-22T21:10:50.4639761+07:00 0HLDVTN2RFLA6:00000002 [INF] Executed DbCommand ("171"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-05-22T21:10:55.3197964+07:00 0HLDVTN2RFLA6:00000002 [INF] Executed DbCommand ("18"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-22T21:11:15.9844390+07:00 0HLDVTN2RFLA6:00000002 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-05-22T21:11:47.3648591+07:00 0HLDVTN2RFLA6:00000002 [INF] User logged in. (fdce0db4)
+2018-05-22T21:11:49.5311561+07:00 0HLDVTN2RFLA6:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-05-22T21:11:54.4485070+07:00 0HLDVTN2RFLA6:00000002 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.LoginController.Authen (AspNetCore)" in 72440.2295ms (afa2e885)
+2018-05-22T21:11:54.4550798+07:00 0HLDVTN2RFLA6:00000002 [INF] Request finished in 72504.3078ms 200 application/json; charset=utf-8 (791a596a)
+2018-05-22T21:11:54.5528141+07:00 0HLDVTN2RFLA6:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Admin/Home/Index   (ca22a1cb)
+2018-05-22T21:11:54.5619796+07:00 0HLDVTN2RFLA6:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T21:11:54.5887609+07:00 0HLDVTN2RFLA6:00000003 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.HomeController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:11:54.8903471+07:00 0HLDVTN2RFLA6:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2018-05-22T21:12:21.6260276+07:00 0HLDVTN2RFLA6:00000003 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T21:12:22.1534522+07:00 0HLDVTN2RFLA6:00000003 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.HomeController.Index (AspNetCore)" in 27567.1402ms (afa2e885)
+2018-05-22T21:12:23.1430206+07:00 0HLDVTN2RFLA6:00000003 [ERR] An unhandled exception has occurred while executing the request (cf926119)
+System.InvalidOperationException: Missing map from AspNetCore.Data.Entities.Function to AspNetCore.Services.Systems.Functions.Dtos.FunctionViewModel. Create using Mapper.CreateMap<Function, FunctionViewModel>.
+   at AutoMapper.QueryableExtensions.ExpressionBuilder.CreateMapExpressionCore(ExpressionRequest request, Expression instanceParameter, IDictionary`2 typePairCount, LetPropertyMaps letPropertyMaps, TypeMap& typeMap)
+   at AutoMapper.QueryableExtensions.ExpressionBuilder.CreateMapExpression(ExpressionRequest request, IDictionary`2 typePairCount, LetPropertyMaps letPropertyMaps)
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at AutoMapper.QueryableExtensions.ExpressionBuilder.GetMapExpression(Type sourceType, Type destinationType, IDictionary`2 parameters, MemberInfo[] membersToExpand)
+   at AutoMapper.QueryableExtensions.ProjectionExpression.To[TResult](IDictionary`2 parameters, IEnumerable`1 memberPathsToExpand)
+   at AutoMapper.QueryableExtensions.Extensions.ProjectTo[TDestination](IQueryable source, Expression`1[] membersToExpand)
+   at AspNetCore.Services.Systems.Functions.FunctionService.GetAll(String filter) in D:\CODE\AspNetCore\AspNetCore.Services\Systems\Functions\FunctionService.cs:line 70
+   at AspNetCore.Areas.Admin.Components.SideBarViewComponent.<InvokeAsync>d__2.MoveNext() in D:\CODE\AspNetCore\AspNetCore\Areas\Admin\Components\SideBarViewComponent.cs:line 39
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.<InvokeAsyncCore>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.<InvokeAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentHelper.<InvokeCoreAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at AspNetCore._Areas_Admin_Views_Shared__Layout_cshtml.<<ExecuteAsync>b__34_7>d.MoveNext() in D:\CODE\AspNetCore\AspNetCore\Areas\Admin\Views\Shared\_Layout.cshtml:line 58
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.<SetOutputContentAsync>d__30.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at AspNetCore._Areas_Admin_Views_Shared__Layout_cshtml.<ExecuteAsync>d__34.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.<RenderPageCoreAsync>d__16.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.<RenderPageAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.<RenderLayoutAsync>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.<RenderAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.<ExecuteAsync>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.<ExecuteAsync>d__21.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.ViewResult.<ExecuteResultAsync>d__26.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeResultAsync>d__19.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResultFilterAsync>d__24.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeFilterPipelineAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.<Invoke>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.<Invoke>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.<Invoke>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.<Invoke>d__7.MoveNext()
+2018-05-22T21:12:23.8732634+07:00 0HLDVTN2RFLA6:00000003 [INF] Request finished in 29367.273ms 500 text/html; charset=utf-8 (791a596a)
