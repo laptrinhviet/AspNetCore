@@ -71,7 +71,6 @@ namespace AspNetCore.Services.Content.PostCategories
         //    var data = query.OrderByDescending(x => x.CreatedDate)
         //        .Skip((page - 1) * pageSize)
         //        .Take(pageSize);
-
         //    var paginationSet = new PagedResult<PostCategoryViewModel>()
         //    {
         //        Results = data.ProjectTo<PostCategoryViewModel>().ToList(),
@@ -79,7 +78,6 @@ namespace AspNetCore.Services.Content.PostCategories
         //        RowCount = totalRow,
         //        PageSize = pageSize,
         //    };
-
         //    return paginationSet;
         //}
 

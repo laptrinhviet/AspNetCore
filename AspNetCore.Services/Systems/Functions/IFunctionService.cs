@@ -18,8 +18,8 @@ namespace AspNetCore.Services.Systems.Functions
         void UpdateParentId(Guid sourceId, Guid targetId, Dictionary<Guid, int> items);
         void ReOrder(Guid sourceId, Guid targetId);
         //
-        //void Add(FunctionViewModel function);
-        //void Update(FunctionViewModel function);
+        //void Add(FunctionViewModel functionVm);
+        //void Update(FunctionViewModel functionVm);
         //void Delete(Guid id);
         //FunctionViewModel GetById(Guid id);
         //List<FunctionViewModel> GetAll();

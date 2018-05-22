@@ -24,13 +24,11 @@ namespace AspNetCore.Areas.Admin.Components
             List<FunctionViewModel> functions;
             if (roles.Split(";").Contains(CommonConstants.AppRole.Admin))
             {
-                functions = await _functionService.GetAll(string.Empty);
-                //functions = await _functionService.GetAllList();
+                functions = await _functionService.GetAll(string.Empty);      
             }
             else
             {
-                functions = await _functionService.GetAll(string.Empty);
-                //functions = await _functionService.GetAllList();
+                functions = await _functionService.GetAll(string.Empty);              
             }
 
             //var roles = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x => x.Type == CommonConstants.UserClaim.Roles);

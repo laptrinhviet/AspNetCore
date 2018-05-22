@@ -26,6 +26,6 @@ namespace AspNetCore.Services.Systems.Functions.Dtos
         //public string ParentList { set; get; }
         public string CssClass { get; set; }
         public int SortOrder { set; get; }
-        public Status Status { set; get; }    
+        public Status Status { set; get; }
     }
 }

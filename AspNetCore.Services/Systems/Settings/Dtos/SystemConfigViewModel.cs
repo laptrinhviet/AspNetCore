@@ -7,12 +7,17 @@ using AspNetCore.Infrastructure.Enums;
 namespace AspNetCore.Services.Systems.Settings.Dtos
 {
     public class SystemConfigViewModel
-    {
-        public Guid Id { set; get; }
+    {        
 
-        [Required]
+        public Guid Id { set; get; }
+      
         [StringLength(128)]
+        [Required]
         public string Name { get; set; }
+
+        [StringLength(128)]
+        [Required]
+        public string UniqueCode { get; set; }
 
         public string TextValue { get; set; }
 
@@ -25,10 +30,7 @@ namespace AspNetCore.Services.Systems.Settings.Dtos
         public decimal? DecimalValue { get; set; }
 
         public string Description { set; get; }
-
-        [StringLength(255)]
-        public string UniqueCode { get; set; }
-
+      
         public Status Status { get; set; }
     }
 }
