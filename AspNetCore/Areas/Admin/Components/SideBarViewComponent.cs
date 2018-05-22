@@ -19,24 +19,24 @@ namespace AspNetCore.Areas.Admin.Components
         }      
 
         public async Task<IViewComponentResult> InvokeAsync()
-        {            
-            var roles = ((ClaimsPrincipal)User).GetSpecificClaim("Roles");
-            List<FunctionViewModel> functions;
-            if (roles.Split(";").Contains(CommonConstants.AppRole.Admin))
-            {
-                functions = await _functionService.GetAll(string.Empty);      
-            }
-            else
-            {
-                functions = await _functionService.GetAll(string.Empty);              
-            }
-
-            //var roles = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x => x.Type == CommonConstants.UserClaim.Roles);
+        {
+            //var roles = ((ClaimsPrincipal)User).GetSpecificClaim("Roles");
             //List<FunctionViewModel> functions;
-            //if (roles != null && roles.Value.Split(";").Contains(CommonConstants.AppRole.Admin))
-            //    functions = await _functionService.GetAll(string.Empty);
+            //if (roles.Split(";").Contains(CommonConstants.AppRole.Admin))
+            //{
+            //    functions = await _functionService.GetAll(string.Empty);      
+            //}
             //else
-            //    functions = await _functionService.GetAllWithPermission(User.Identity.Name);
+            //{
+            //    functions = await _functionService.GetAll(string.Empty);              
+            //}
+
+            var roles = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x => x.Type == CommonConstants.UserClaim.Roles);
+            List<FunctionViewModel> functions;
+            if (roles != null && roles.Value.Split(";").Contains(CommonConstants.AppRole.Admin))
+                functions = await _functionService.GetAll(string.Empty);
+            else
+                functions = await _functionService.GetAllWithPermission(User.Identity.Name);
 
             return View(functions);
         }

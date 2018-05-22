@@ -2022,3 +2022,144 @@ ORDER BY [x].[ParentId]" (0723d8ff)
 2018-05-22T20:15:13.0372211+07:00 0HLDVSNUTE7VS:00000002 [INF] Sending file. Request path: '"/admin-side/js/custom.js"'. Physical path: '"D:\CODE\AspNetCore\AspNetCore\wwwroot\admin-side\js\custom.js"' (27b0a520)
 2018-05-22T20:15:13.0406127+07:00 0HLDVSNUTE7VP:00000006 [INF] Request finished in 313.4748ms 200 image/jpeg (791a596a)
 2018-05-22T20:15:13.0594880+07:00 0HLDVSNUTE7VS:00000002 [INF] Request finished in 295.4263ms 200 application/javascript (791a596a)
+2018-05-22T21:15:00.1703335+07:00  [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T21:15:00.4065054+07:00  [INF] Executed DbCommand ("50"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppRoles] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:15:00.4364935+07:00  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppUsers] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:15:00.4532279+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Functions] AS [f])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:15:00.4904281+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Contacts] AS [x]
+WHERE [x].[Id] = 'default'" (0723d8ff)
+2018-05-22T21:15:00.5088362+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Footers] AS [x]
+WHERE [x].[Id] = 'default'" (0723d8ff)
+2018-05-22T21:15:00.5248447+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AdvertistmentPages] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:15:00.5414560+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Slides] AS [s])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:15:00.5571532+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ProductCategories] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:15:00.5766177+07:00  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeTitle')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:15:00.5949692+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeMetaKeyword')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:15:00.6124971+07:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeMetaDescription')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T21:15:00.8792660+07:00 0HLDVTPJSR70B:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/   (ca22a1cb)
+2018-05-22T21:15:00.8792660+07:00 0HLDVTPJSR70C:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:5624/  0 (ca22a1cb)
+2018-05-22T21:15:00.9209305+07:00 0HLDVTPJSR70C:00000001 [INF] Request finished in 83.9012ms 200  (791a596a)
+2018-05-22T21:15:01.0769268+07:00 0HLDVTPJSR70B:00000001 [INF] Authorization failed for user: null. (a4ab1676)
+2018-05-22T21:15:01.0831052+07:00 0HLDVTPJSR70B:00000001 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2018-05-22T21:15:01.0906228+07:00 0HLDVTPJSR70B:00000001 [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2018-05-22T21:15:01.0978796+07:00 0HLDVTPJSR70B:00000001 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2018-05-22T21:15:01.1050071+07:00 0HLDVTPJSR70B:00000001 [INF] Executed action "AspNetCore.Controllers.HomeController.Index (AspNetCore)" in 31.1142ms (afa2e885)
+2018-05-22T21:15:01.1119216+07:00 0HLDVTPJSR70B:00000001 [INF] Request finished in 295.5572ms 302  (791a596a)
+2018-05-22T21:15:01.1214463+07:00 0HLDVTPJSR70C:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Account/Login?ReturnUrl=%2F   (ca22a1cb)
+2018-05-22T21:15:01.5119334+07:00 0HLDVTPJSR70C:00000002 [INF] Executing action method "AspNetCore.Controllers.AccountController.Login (AspNetCore)" with arguments (["/"]) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:15:01.5431507+07:00 0HLDVTPJSR70C:00000002 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-05-22T21:15:07.5009923+07:00 0HLDVTPJSR70C:00000002 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-22T21:15:08.2276756+07:00 0HLDVTPJSR70C:00000002 [INF] Executed action "AspNetCore.Controllers.AccountController.Login (AspNetCore)" in 7078.2517ms (afa2e885)
+2018-05-22T21:15:08.2366186+07:00 0HLDVTPJSR70C:00000002 [INF] Request finished in 7114.4242ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T21:15:12.1313450+07:00 0HLDVTPJSR70B:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Admin   (ca22a1cb)
+2018-05-22T21:15:12.1661920+07:00 0HLDVTPJSR70B:00000002 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.LoginController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:15:12.4382441+07:00 0HLDVTPJSR70B:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2018-05-22T21:15:12.4715318+07:00 0HLDVTPJSR70B:00000002 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.LoginController.Index (AspNetCore)" in 327.1522ms (afa2e885)
+2018-05-22T21:15:12.4754221+07:00 0HLDVTPJSR70B:00000002 [INF] Request finished in 346.0325ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T21:15:17.3257322+07:00 0HLDVTPJSR70C:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:5624/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 32 (ca22a1cb)
+2018-05-22T21:15:17.3779757+07:00 0HLDVTPJSR70C:00000003 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.LoginController.Authen (AspNetCore)" with arguments (["AspNetCore.Models.AccountViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:15:17.3857929+07:00 0HLDVTPJSR70C:00000003 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T21:15:17.4835871+07:00 0HLDVTPJSR70C:00000003 [INF] Executed DbCommand ("62"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Address], [u].[Avatar], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[CreatedDate], [u].[DeletedDate], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[Gender], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UpdatedDate], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-22T21:15:21.1927802+07:00 0HLDVTPJSR70C:00000003 [INF] Executed DbCommand ("57"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-05-22T21:15:21.2590756+07:00 0HLDVTPJSR70C:00000003 [INF] Executed DbCommand ("15"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-22T21:15:21.3081471+07:00 0HLDVTPJSR70C:00000003 [INF] Executed DbCommand ("33"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-22T21:15:21.3631857+07:00 0HLDVTPJSR70C:00000003 [INF] Executed DbCommand ("30"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-05-22T21:15:21.3928001+07:00 0HLDVTPJSR70C:00000003 [INF] Executed DbCommand ("24"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-22T21:15:21.3992782+07:00 0HLDVTPJSR70C:00000003 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-05-22T21:15:21.4022300+07:00 0HLDVTPJSR70C:00000003 [INF] User logged in. (fdce0db4)
+2018-05-22T21:15:21.4101261+07:00 0HLDVTPJSR70C:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-05-22T21:15:21.4499821+07:00 0HLDVTPJSR70C:00000003 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.LoginController.Authen (AspNetCore)" in 4112.9721ms (afa2e885)
+2018-05-22T21:15:21.4543487+07:00 0HLDVTPJSR70C:00000003 [INF] Request finished in 4129.1551ms 200 application/json; charset=utf-8 (791a596a)
+2018-05-22T21:15:21.4645294+07:00 0HLDVTPJSR70B:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Admin/Home/Index   (ca22a1cb)
+2018-05-22T21:15:21.4709812+07:00 0HLDVTPJSR70B:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T21:15:21.4902269+07:00 0HLDVTPJSR70B:00000003 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.HomeController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T21:15:21.6320089+07:00 0HLDVTPJSR70B:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2018-05-22T21:15:21.8748013+07:00 0HLDVTPJSR70B:00000003 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T21:15:22.1224188+07:00 0HLDVTPJSR70B:00000003 [INF] Executed DbCommand ("73"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[UniqueCode], [x].[Name], [x].[Url], [x].[ParentId], [x].[CssClass], [x].[SortOrder], [x].[Status]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-05-22T21:15:22.4657550+07:00 0HLDVTPJSR70B:00000003 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.HomeController.Index (AspNetCore)" in 989.5228ms (afa2e885)
+2018-05-22T21:15:22.4709743+07:00 0HLDVTPJSR70B:00000003 [INF] Request finished in 1006.5006ms 200 text/html; charset=utf-8 (791a596a)
