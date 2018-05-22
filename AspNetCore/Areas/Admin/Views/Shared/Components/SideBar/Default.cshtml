@@ -10,9 +10,9 @@
             @if (Model.Any(x => x.ParentId == item.Id))
     {
         <ul class="nav child_menu">
-            @foreach (var jitem in Model.Where(x => x.ParentId == item.Id))
+            @foreach (var jitem in Model.Where(x => x.ParentId == item.Id).OrderBy(x=>x.SortOrder))
     {
-        <li><a href="@item.Url">@item.Name</a></li>
+        <li><a href="@jitem.Url">@jitem.Name</a></li>
 
 }
         </ul>

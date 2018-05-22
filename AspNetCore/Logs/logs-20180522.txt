@@ -2413,3 +2413,180 @@ ORDER BY [x].[ParentId]" (0723d8ff)
 2018-05-22T21:15:22.4657550+07:00 0HLDVTPJSR70B:00000003 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.HomeController.Index (AspNetCore)" in 989.5228ms (afa2e885)
 2018-05-22T21:15:22.4709743+07:00 0HLDVTPJSR70B:00000003 [INF] Request finished in 1006.5006ms 200 text/html; charset=utf-8 (791a596a)
 >>>>>>> dev-anhlt
+2018-05-22T23:23:48.1515178+07:00  [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T23:23:48.4075310+07:00  [INF] Executed DbCommand ("58"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppRoles] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T23:23:48.4436268+07:00  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppUsers] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T23:23:48.4617784+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Functions] AS [f])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T23:23:48.5042882+07:00  [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Contacts] AS [x]
+WHERE [x].[Id] = 'default'" (0723d8ff)
+2018-05-22T23:23:48.5244095+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Footers] AS [x]
+WHERE [x].[Id] = 'default'" (0723d8ff)
+2018-05-22T23:23:48.5408351+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AdvertistmentPages] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T23:23:48.5621159+07:00  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Slides] AS [s])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T23:23:48.5809214+07:00  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ProductCategories] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T23:23:48.6033817+07:00  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeTitle')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T23:23:48.6206165+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeMetaKeyword')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T23:23:48.6412687+07:00  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Settings] AS [x]
+        WHERE [x].[UniqueCode] = N'HomeMetaDescription')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2018-05-22T23:23:49.1347871+07:00 0HLE001J329F9:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:5624/  0 (ca22a1cb)
+2018-05-22T23:23:49.1347859+07:00 0HLE001J329FA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/   (ca22a1cb)
+2018-05-22T23:23:49.1571629+07:00 0HLE001J329F9:00000001 [INF] Request finished in 85.5187ms 200  (791a596a)
+2018-05-22T23:23:49.3301924+07:00 0HLE001J329FA:00000001 [INF] Authorization failed for user: null. (a4ab1676)
+2018-05-22T23:23:49.3368088+07:00 0HLE001J329FA:00000001 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2018-05-22T23:23:49.3451245+07:00 0HLE001J329FA:00000001 [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2018-05-22T23:23:49.3535398+07:00 0HLE001J329FA:00000001 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2018-05-22T23:23:49.3621860+07:00 0HLE001J329FA:00000001 [INF] Executed action "AspNetCore.Controllers.HomeController.Index (AspNetCore)" in 35.1663ms (afa2e885)
+2018-05-22T23:23:49.3684862+07:00 0HLE001J329FA:00000001 [INF] Request finished in 297.7523ms 302  (791a596a)
+2018-05-22T23:23:49.3812240+07:00 0HLE001J329F9:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Account/Login?ReturnUrl=%2F   (ca22a1cb)
+2018-05-22T23:23:49.5304068+07:00 0HLE001J329F9:00000002 [INF] Executing action method "AspNetCore.Controllers.AccountController.Login (AspNetCore)" with arguments (["/"]) - ModelState is Valid (ba7f4ac2)
+2018-05-22T23:23:49.5399479+07:00 0HLE001J329F9:00000002 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2018-05-22T23:23:52.7118522+07:00 0HLE001J329F9:00000002 [INF] Executing ViewResult, running view at path "/Views/Account/Login.cshtml". (9707eebe)
+2018-05-22T23:23:53.4842941+07:00 0HLE001J329F9:00000002 [INF] Executed action "AspNetCore.Controllers.AccountController.Login (AspNetCore)" in 4066.4857ms (afa2e885)
+2018-05-22T23:23:53.4937613+07:00 0HLE001J329F9:00000002 [INF] Request finished in 4111.4678ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T23:23:57.7114116+07:00 0HLE001J329FA:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Admin   (ca22a1cb)
+2018-05-22T23:23:57.7408361+07:00 0HLE001J329FA:00000002 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.LoginController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T23:23:58.0320866+07:00 0HLE001J329FA:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2018-05-22T23:23:58.0673785+07:00 0HLE001J329FA:00000002 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.LoginController.Index (AspNetCore)" in 348.4718ms (afa2e885)
+2018-05-22T23:23:58.0718407+07:00 0HLE001J329FA:00000002 [INF] Request finished in 361.6213ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T23:24:20.1755640+07:00 0HLE001J329F9:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:5624/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 32 (ca22a1cb)
+2018-05-22T23:24:20.2297363+07:00 0HLE001J329F9:00000003 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.LoginController.Authen (AspNetCore)" with arguments (["AspNetCore.Models.AccountViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2018-05-22T23:24:20.2492065+07:00 0HLE001J329F9:00000003 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T23:24:20.3819030+07:00 0HLE001J329F9:00000003 [INF] Executed DbCommand ("85"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Address], [u].[Avatar], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[CreatedDate], [u].[DeletedDate], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[Gender], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UpdatedDate], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2018-05-22T23:24:20.5582846+07:00 0HLE001J329F9:00000003 [INF] Executed DbCommand ("61"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2018-05-22T23:24:20.6147247+07:00 0HLE001J329F9:00000003 [INF] Executed DbCommand ("16"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-22T23:24:20.6518132+07:00 0HLE001J329F9:00000003 [INF] Executed DbCommand ("24"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2018-05-22T23:24:20.6977395+07:00 0HLE001J329F9:00000003 [INF] Executed DbCommand ("25"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2018-05-22T23:24:20.7266561+07:00 0HLE001J329F9:00000003 [INF] Executed DbCommand ("23"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2018-05-22T23:24:20.7336272+07:00 0HLE001J329F9:00000003 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2018-05-22T23:24:20.7374622+07:00 0HLE001J329F9:00000003 [INF] User logged in. (fdce0db4)
+2018-05-22T23:24:20.7460319+07:00 0HLE001J329F9:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-05-22T23:24:20.7974876+07:00 0HLE001J329F9:00000003 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.LoginController.Authen (AspNetCore)" in 611.2476ms (afa2e885)
+2018-05-22T23:24:20.8030677+07:00 0HLE001J329F9:00000003 [INF] Request finished in 627.5664ms 200 application/json; charset=utf-8 (791a596a)
+2018-05-22T23:24:20.8148086+07:00 0HLE001J329FA:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Admin/Home/Index   (ca22a1cb)
+2018-05-22T23:24:20.8240652+07:00 0HLE001J329FA:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T23:24:20.8446549+07:00 0HLE001J329FA:00000003 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.HomeController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T23:24:21.0359921+07:00 0HLE001J329FA:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2018-05-22T23:24:21.3026048+07:00 0HLE001J329FA:00000003 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T23:24:21.5424055+07:00 0HLE001J329FA:00000003 [INF] Executed DbCommand ("63"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[UniqueCode], [x].[Name], [x].[Url], [x].[ParentId], [x].[CssClass], [x].[SortOrder], [x].[Status]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-05-22T23:24:21.8812684+07:00 0HLE001J329FA:00000003 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.HomeController.Index (AspNetCore)" in 1051.8858ms (afa2e885)
+2018-05-22T23:24:21.8872658+07:00 0HLE001J329FA:00000003 [INF] Request finished in 1072.0946ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T23:24:47.8144099+07:00 0HLE001J329F9:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5624/lib/bootstrap/dist/css/bootstrap.css.map   (ca22a1cb)
+2018-05-22T23:24:47.8180133+07:00 0HLE001J329F9:00000004 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T23:24:47.8250567+07:00 0HLE001J329F9:00000004 [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.css.map"'. Physical path: '"D:\CODE\AspNetCore\AspNetCore\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map"' (27b0a520)
+2018-05-22T23:24:47.9081326+07:00 0HLE001J329F9:00000004 [INF] Request finished in 92.597ms 200 text/plain (791a596a)
+2018-05-22T23:29:44.7886164+07:00 0HLE001J329FB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Admin/Home/Index   (ca22a1cb)
+2018-05-22T23:29:44.7921882+07:00 0HLE001J329FB:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T23:29:44.8145249+07:00 0HLE001J329FB:00000001 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.HomeController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T23:29:44.8183220+07:00 0HLE001J329FB:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2018-05-22T23:29:44.8231468+07:00 0HLE001J329FB:00000001 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T23:29:44.8632405+07:00 0HLE001J329FB:00000001 [INF] Executed DbCommand ("34"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[UniqueCode], [x].[Name], [x].[Url], [x].[ParentId], [x].[CssClass], [x].[SortOrder], [x].[Status]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-05-22T23:29:45.0269957+07:00 0HLE001J329FB:00000001 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.HomeController.Index (AspNetCore)" in 229.8789ms (afa2e885)
+2018-05-22T23:29:45.0362311+07:00 0HLE001J329FB:00000001 [INF] Request finished in 243.5079ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T23:29:45.4437976+07:00 0HLE001J329FB:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/favicon.ico   (ca22a1cb)
+2018-05-22T23:29:45.4498877+07:00 0HLE001J329FB:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T23:29:45.4543371+07:00 0HLE001J329FB:00000002 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"D:\CODE\AspNetCore\AspNetCore\wwwroot\favicon.ico"' (27b0a520)
+2018-05-22T23:29:45.4916617+07:00 0HLE001J329FB:00000002 [INF] Request finished in 48.071ms 200 image/x-icon (791a596a)
+2018-05-22T23:32:34.0989833+07:00 0HLE001J329FC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5624/Admin/Home/Index   (ca22a1cb)
+2018-05-22T23:32:34.1035301+07:00 0HLE001J329FC:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T23:32:34.1246474+07:00 0HLE001J329FC:00000001 [INF] Executing action method "AspNetCore.Areas.Admin.Controllers.HomeController.Index (AspNetCore)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2018-05-22T23:32:34.1277233+07:00 0HLE001J329FC:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2018-05-22T23:32:34.1320919+07:00 0HLE001J329FC:00000001 [INF] Entity Framework Core "2.0.2-rtm-10011" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=AspNetCore.Data.EF " (9958f5bb)
+2018-05-22T23:32:34.1623218+07:00 0HLE001J329FC:00000001 [INF] Executed DbCommand ("25"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Id], [x].[UniqueCode], [x].[Name], [x].[Url], [x].[ParentId], [x].[CssClass], [x].[SortOrder], [x].[Status]
+FROM [Functions] AS [x]
+WHERE [x].[Status] = 1
+ORDER BY [x].[ParentId]" (0723d8ff)
+2018-05-22T23:32:34.3217815+07:00 0HLE001J329FC:00000001 [INF] Executed action "AspNetCore.Areas.Admin.Controllers.HomeController.Index (AspNetCore)" in 213.9619ms (afa2e885)
+2018-05-22T23:32:34.3257885+07:00 0HLE001J329FC:00000001 [INF] Request finished in 227.1253ms 200 text/html; charset=utf-8 (791a596a)
+2018-05-22T23:32:34.7217410+07:00 0HLE001J329FC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5624/favicon.ico   (ca22a1cb)
+2018-05-22T23:32:34.7259746+07:00 0HLE001J329FC:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2018-05-22T23:32:34.7291145+07:00 0HLE001J329FC:00000002 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"D:\CODE\AspNetCore\AspNetCore\wwwroot\favicon.ico"' (27b0a520)
+2018-05-22T23:32:34.7374708+07:00 0HLE001J329FC:00000002 [INF] Request finished in 14.1569ms 200 image/x-icon (791a596a)
