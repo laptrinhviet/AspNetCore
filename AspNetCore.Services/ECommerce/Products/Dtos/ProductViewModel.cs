@@ -41,8 +41,8 @@ namespace AspNetCore.Services.ECommerce.Products.Dtos
         public bool? HomeFlag { get; set; }
         public bool? HotFlag { get; set; }
 
-        [Required]
-        [DefaultValue(0)]
+        public int Quantity { set; get; }
+
         public decimal Price { get; set; }
         public decimal? PromotionPrice { get; set; }
 

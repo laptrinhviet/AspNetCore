@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="ECommerce\Bills\BillService.cs" />
-    <Compile Remove="ECommerce\Bills\IBillService.cs" />
     <Compile Remove="Systems\Announcements\AnnouncementService.cs" />
     <Compile Remove="Systems\Announcements\IAnnouncementService.cs" />
     <Compile Remove="Systems\AuditLogs\AuditLogService.cs" />

@@ -13,70 +13,50 @@ using AspNetCore.Utilities.Dtos;
 
 namespace AspNetCore.Services.ECommerce.Bills
 {
-    public class BillService : IBillService
+    public class BillService : WebServiceBase<Bill, Guid, BillViewModel>, IBillService
     {
-        private readonly IRepository<Bill, int> _orderRepository;
-        private readonly IRepository<BillDetail, int> _orderDetailRepository;
-        private readonly IRepository<Color, int> _colorRepository;
-        private readonly IRepository<Size, int> _sizeRepository;
-        private readonly IRepository<Product, int> _productRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IRepository<Bill, Guid> _orderRepository;
+        private readonly IRepository<BillDetail, Guid> _orderDetailRepository;      
+        private readonly IRepository<Product, Guid> _productRepository;       
 
-        public BillService(IRepository<Bill, int> orderRepository,
-            IRepository<BillDetail, int> orderDetailRepository,
-            IRepository<Product, int> productRepository,
-            IRepository<Color, int> colorRepository,
-            IRepository<Size, int> sizeRepository,
-            IUnitOfWork unitOfWork)
+        public BillService(IRepository<Bill, Guid> orderRepository,
+            IRepository<BillDetail, Guid> orderDetailRepository,
+            IRepository<Product, Guid> productRepository,           
+            IUnitOfWork unitOfWork) : base(orderRepository, unitOfWork)
         {
             _orderRepository = orderRepository;
             _orderDetailRepository = orderDetailRepository;
-            _colorRepository = colorRepository;
             _productRepository = productRepository;
-            _sizeRepository = sizeRepository;
-            _unitOfWork = unitOfWork;
         }
 
-        public void Create(BillViewModel billVm)
+        public override void Add(BillViewModel billVm)
         {
             var order = Mapper.Map<BillViewModel, Bill>(billVm);
             var orderDetails = Mapper.Map<List<BillDetailViewModel>, List<BillDetail>>(billVm.BillDetails);
-            foreach (var detail in orderDetails)
+            foreach(var detail in orderDetails)
             {
-                var product = _productRepository.FindById(detail.ProductId);
+                var product = _productRepository.GetById(detail.ProductId);
                 detail.Price = product.PromotionPrice ?? product.Price;
             }
-            order.BillDetails = orderDetails;
-            _orderRepository.Add(order);
+            _orderRepository.Insert(order);
         }
 
-        public void Update(BillViewModel billVm)
+        public override void Update(BillViewModel billVm)
         {
-            //Mapping to order domain
-            var order = _orderRepository.FindById(billVm.Id, i => i.BillDetails);
-
-            //Get order Detail
+            var order = _orderRepository.GetById(billVm.Id);
             var newDetails = Mapper.Map<List<BillDetailViewModel>, List<BillDetail>>(billVm.BillDetails);
-
-            //new details added
-            var addedDetails = newDetails.Where(x => x.Id == 0).ToList();
-
-            //get updated details
-            var updatedDetailVms = newDetails.Where(x => x.Id != 0).ToList();
-
-            //Existed details
-            var existedDetails = _orderDetailRepository.FindAll(x => x.BillId == billVm.Id);
-
-            //Clear db
+            var addedDetails = newDetails.Where(x => x.Id == Guid.Empty).ToList();
+            var updatedDetailVms = newDetails.Where(x => x.Id != Guid.Empty).ToList();
+            var existedDetails = _orderDetailRepository.GetAll().Where(x => x.BillId == billVm.Id);
 
             List<BillDetail> updatedDetails = new List<BillDetail>();
 
             foreach (var detailVm in updatedDetailVms)
             {
-                var detail = _orderDetailRepository.FindById(detailVm.Id);
+                var detail = _orderDetailRepository.GetById(detailVm.Id);
                 detail.Quantity = detailVm.Quantity;
                 detail.ProductId = detailVm.ProductId;
-                var product = _productRepository.FindById(detailVm.ProductId);
+                var product = _productRepository.GetById(detailVm.ProductId);
                 detail.Price = product.PromotionPrice ?? product.Price;
                 _orderDetailRepository.Update(detail);
                 updatedDetails.Add(detail);
@@ -84,13 +64,13 @@ namespace AspNetCore.Services.ECommerce.Bills
 
             foreach (var detail in addedDetails)
             {
-                var product = _productRepository.FindById(detail.ProductId);
+                var product = _productRepository.GetById(detail.ProductId);
                 detail.Price = product.PromotionPrice ?? product.Price;
                 detail.BillId = order.Id;
-                _orderDetailRepository.Add(detail);
+                _orderDetailRepository.Insert(detail);
             }
 
-            _orderDetailRepository.RemoveMultiple(existedDetails.Except(updatedDetails).ToList());
+            //_orderDetailRepository.Delete(existedDetails.Except(updatedDetails));
 
             if (order.BillStatus != BillStatus.Completed && billVm.BillStatus == BillStatus.Completed)
             {
@@ -108,36 +88,69 @@ namespace AspNetCore.Services.ECommerce.Bills
             order.BillStatus = billVm.BillStatus;
             order.PaymentMethod = billVm.PaymentMethod;
             order.ShippingFee = billVm.ShippingFee;
-
+            order.Status = billVm.Status;
             _orderRepository.Update(order);
         }
 
-        public void UpdateStatus(int billId, BillStatus status)
+        public override BillViewModel GetById(Guid billId)
         {
-            var order = _orderRepository.FindById(billId);
+            var bill = _orderRepository.Single(x => x.Id == billId);
+            var billVm = Mapper.Map<Bill, BillViewModel>(bill);
+            var billDetailVm = _orderDetailRepository.GetAll(x => x.BillId == billId).ProjectTo<BillDetailViewModel>().ToList();
+            billVm.BillDetails = billDetailVm;
+            return billVm;
+        }
+
+        public PagedResult<BillViewModel> GetAllPaging(string startDate, string endDate, string keyword, int pageSize, int page)
+        {
+            var query = _orderRepository.GetAll();
+            if (!string.IsNullOrEmpty(startDate))
+            {
+                DateTime start = DateTime.ParseExact(startDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
+                query = query.Where(x => x.CreatedDate >= start);
+            }
+            if (!string.IsNullOrEmpty(endDate))
+            {
+                DateTime end = DateTime.ParseExact(endDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
+                query = query.Where(x => x.CreatedDate <= end);
+            }
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                query = query.Where(x => x.CustomerName.Contains(keyword) || x.CustomerMobile.Contains(keyword));
+            }
+            var totalRow = query.Count();
+            var data = query.OrderByDescending(x => x.CreatedDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ProjectTo<BillViewModel>()
+                .ToList();
+            return new PagedResult<BillViewModel>()
+            {
+                CurrentPage = page,
+                PageSize = pageSize,
+                Results = data,
+                RowCount = totalRow
+            };
+        }
+
+        public void UpdateStatus(Guid billId, BillStatus status)
+        {
+            var order = _orderRepository.GetById(billId);
             order.BillStatus = status;
             _orderRepository.Update(order);
-        }
+        }     
 
-        public List<SizeViewModel> GetSizes()
+        public void ConfirmBill(Guid id)
         {
-            return _sizeRepository.FindAll().ProjectTo<SizeViewModel>().ToList();
-        }
-
-        public void Save()
-        {
-            _unitOfWork.Commit();
-        }
-
-        public void ConfirmBill(int id)
-        {
-            var bill = _orderRepository.FindById(id, i => i.BillDetails);
+            //var bill = _orderRepository.FindById(id, i => i.BillDetails);
+            var bill = _orderRepository.GetById(id);
+            var billDetails = _orderDetailRepository.GetAll().Where(x => x.BillId == id);
             if (bill.BillStatus != BillStatus.Completed)
             {
                 bill.BillStatus = BillStatus.Completed;
-                foreach (var detail in bill.BillDetails)
+                foreach (var detail in billDetails)
                 {
-                    var product = _productRepository.FindById(detail.ProductId);
+                    var product = _productRepository.GetById(detail.ProductId);
                     if (product.Quantity >= detail.Quantity)
                     {
                         product.Quantity -= detail.Quantity;
@@ -152,15 +165,16 @@ namespace AspNetCore.Services.ECommerce.Bills
             }
         }
 
-        public void CancelBill(int id)
+        public void CancelBill(Guid id)
         {
-            var bill = _orderRepository.FindById(id, i => i.BillDetails);
+            var bill = _orderRepository.GetById(id);
+            var billDetails = _orderDetailRepository.GetAll().Where(x => x.BillId == id);            
             if (bill.BillStatus != BillStatus.Cancelled)
             {
                 bill.BillStatus = BillStatus.Cancelled;
-                foreach (var detail in bill.BillDetails)
+                foreach (var detail in billDetails)
                 {
-                    var product = _productRepository.FindById(detail.ProductId);
+                    var product = _productRepository.GetById(detail.ProductId);
                     product.Quantity += detail.Quantity;
                 }
             }
@@ -170,9 +184,10 @@ namespace AspNetCore.Services.ECommerce.Bills
             }
         }
 
-        public void PendingBill(int id)
+        public void PendingBill(Guid id)
         {
-            var bill = _orderRepository.FindById(id, i => i.BillDetails);
+            var bill = _orderRepository.GetById(id);
+            var billDetails = _orderDetailRepository.GetAll().Where(x => x.BillId == id);
             if (bill.BillStatus != BillStatus.Pending)
             {
                 bill.BillStatus = BillStatus.Pending;
@@ -183,72 +198,36 @@ namespace AspNetCore.Services.ECommerce.Bills
             }
         }
 
-        public PagedResult<BillViewModel> GetAllPaging(string startDate, string endDate, string keyword
-            , int pageIndex, int pageSize)
+        public void AddDetail(BillDetailViewModel billDetailVm)
         {
-            var query = _orderRepository.FindAll();
-            if (!string.IsNullOrEmpty(startDate))
-            {
-                DateTime start = DateTime.ParseExact(startDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
-                query = query.Where(x => x.DateCreated >= start);
-            }
-            if (!string.IsNullOrEmpty(endDate))
-            {
-                DateTime end = DateTime.ParseExact(endDate, "dd/MM/yyyy", CultureInfo.GetCultureInfo("vi-VN"));
-                query = query.Where(x => x.DateCreated <= end);
-            }
-            if (!string.IsNullOrEmpty(keyword))
-            {
-                query = query.Where(x => x.CustomerName.Contains(keyword) || x.CustomerMobile.Contains(keyword));
-            }
-            var totalRow = query.Count();
-            var data = query.OrderByDescending(x => x.DateCreated)
-                .Skip((pageIndex - 1) * pageSize)
-                .Take(pageSize)
-                .ProjectTo<BillViewModel>()
-                .ToList();
-            return new PagedResult<BillViewModel>()
-            {
-                CurrentPage = pageIndex,
-                PageSize = pageSize,
-                Results = data,
-                RowCount = totalRow
-            };
+            var billDetail = Mapper.Map<BillDetailViewModel, BillDetail>(billDetailVm);
+            _orderDetailRepository.Insert(billDetail);
         }
 
-        public BillViewModel GetDetail(int billId)
+        public void DeleteDetail(Guid productId, Guid billId)
         {
-            var bill = _orderRepository.FindSingle(x => x.Id == billId);
+            var detail = _orderDetailRepository.Single(x => x.ProductId == productId
+           && x.BillId == billId);
+            _orderDetailRepository.Delete(detail);
+        }
+
+        public BillViewModel GetDetailById(Guid billId)
+        {
+            var bill = _orderRepository.Single(x => x.Id == billId);
             var billVm = Mapper.Map<Bill, BillViewModel>(bill);
-            var billDetailVm = _orderDetailRepository.FindAll(x => x.BillId == billId).ProjectTo<BillDetailViewModel>().ToList();
+            var billDetailVm = _orderDetailRepository.GetAll().Where(x => x.BillId == billId).ProjectTo<BillDetailViewModel>().ToList();
             billVm.BillDetails = billDetailVm;
             return billVm;
         }
 
-        public List<BillDetailViewModel> GetBillDetails(int billId)
+        public List<BillDetailViewModel> GetDetailsByBillId(Guid billId)
         {
             return _orderDetailRepository
-                .FindAll(x => x.BillId == billId, c => c.Bill, c => c.Product)
+                  .GetAll().Where(x => x.BillId == billId)
+                //.GetAll().Where(x => x.BillId == billId, c => c.Bill, c => c.Product) 
                 .ProjectTo<BillDetailViewModel>().ToList();
-        }
+        }     
 
-        public List<ColorViewModel> GetColors()
-        {
-            return _colorRepository.FindAll().ProjectTo<ColorViewModel>().ToList();
-        }
-
-        public BillDetailViewModel CreateDetail(BillDetailViewModel billDetailVm)
-        {
-            var billDetail = Mapper.Map<BillDetailViewModel, BillDetail>(billDetailVm);
-            _orderDetailRepository.Add(billDetail);
-            return billDetailVm;
-        }
-
-        public void DeleteDetail(int productId, int billId, int colorId, int sizeId)
-        {
-            var detail = _orderDetailRepository.FindSingle(x => x.ProductId == productId
-           && x.BillId == billId);
-            _orderDetailRepository.Remove(detail);
-        }
+       
     }
 }

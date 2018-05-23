@@ -5,7 +5,7 @@ using AspNetCore.Data.Entities;
 
 namespace AspNetCore.Services.Systems.AuditLogs
 {
-    public interface IAuditLogService
+    public interface IAuditLogService : IWebServiceBase<Error, string, ErrorViewModel>
     {
         void Create(Error error);
 

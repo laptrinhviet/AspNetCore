@@ -20,7 +20,7 @@ namespace AspNetCore.Data.Entities
         }
 
         public Product(Guid id, Guid categoryId, string code, string name, string pageAlias, string description, string image, string content, int? viewCount,
-        string tags, string unit, bool? homeFlag, bool? hotFlag, decimal price, decimal originalPrice, decimal? promotionPrice, Status status, 
+        string tags, string unit, bool? homeFlag, bool? hotFlag, int quantity, decimal price, decimal originalPrice, decimal? promotionPrice, Status status, 
         string pageTitle, string metaDescription, string metaKeywords)
         {
             Id = id;
@@ -36,6 +36,7 @@ namespace AspNetCore.Data.Entities
             Unit = unit;
             HomeFlag = homeFlag;
             HotFlag = hotFlag;
+            Quantity = quantity;
             Price = price;
             OriginalPrice = originalPrice;
             PromotionPrice = promotionPrice;
@@ -73,7 +74,8 @@ namespace AspNetCore.Data.Entities
         public string Unit { get; set; }     
         public bool? HomeFlag { get; set; }
         public bool? HotFlag { get; set; }
-
+        [DefaultValue(0)]
+        public int Quantity { set; get; }
         [Required]
         [DefaultValue(0)]
         public decimal Price { get; set; }

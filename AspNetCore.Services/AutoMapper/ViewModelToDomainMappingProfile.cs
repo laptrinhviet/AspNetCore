@@ -38,7 +38,7 @@ namespace AspNetCore.Services.AutoMapper
 
             CreateMap<ProductViewModel, Product>()
               .ConstructUsing(c => new Product(c.Id, c.CategoryId, c.Code, c.Name, c.PageAlias, c.Description, c.Image, c.Content, c.ViewCount, c.Tags,
-              c.Unit, c.HomeFlag, c.HotFlag, c.Price, c.OriginalPrice, c.PromotionPrice, c.Status, c.PageTitle, c.MetaDescription, c.MetaKeywords));
+              c.Unit, c.HomeFlag, c.HotFlag, c.Quantity, c.Price, c.OriginalPrice, c.PromotionPrice, c.Status, c.PageTitle, c.MetaDescription, c.MetaKeywords));
 
             CreateMap<PostCategoryViewModel, PostCategory>()
                .ConstructUsing(c => new PostCategory(c.Id, c.ParentId, c.CurrentIdentity, c.Name, c.PageAlias, c.Description, c.Image, c.HomeFlag, c.HomeOrder,
