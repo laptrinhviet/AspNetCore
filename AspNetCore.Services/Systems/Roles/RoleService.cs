@@ -14,21 +14,22 @@ using System;
 
 namespace AspNetCore.Services.Systems.Roles
 {
-    public class RoleService : WebServiceBase<AppRole, Guid, AppRoleViewModel>, IRoleService
+    public class RoleService
     {
         private readonly RoleManager<AppRole> _roleManager;
         private readonly IRepository<Function, Guid> _functionRepository;
         private readonly IRepository<Permission, Guid> _permissionRepository;
-        //private IUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
 
         public RoleService(RoleManager<AppRole> roleManager,
             IRepository<Function, Guid> functionRepository, 
             IRepository<Permission, Guid> permissionRepository,
-            IUnitOfWork unitOfWork) : base (functionRepository, unitOfWork)
+            IUnitOfWork unitOfWork)
         {          
             _roleManager = roleManager;
             _functionRepository = functionRepository;
             _permissionRepository = permissionRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<bool> AddAsync(AppRoleViewModel roleVm)
@@ -42,31 +43,20 @@ namespace AspNetCore.Services.Systems.Roles
             return result.Succeeded;
         }
 
-        public Task<bool> CheckPermission(string functionId, string action, string[] roles)
+        public async Task UpdateAsync(AppRoleViewModel roleVm)
         {
-            var functions = _functionRepository.FindAll();
-            var permissions = _permissionRepository.FindAll();
-            var query = from f in functions
-                        join p in permissions on f.Id equals p.FunctionId
-                        join r in _roleManager.Roles on p.RoleId equals r.Id
-                        where roles.Contains(r.Name) && f.Id == functionId
-                        && ((p.CanCreate && action == "Create")
-                        || (p.CanUpdate && action == "Update")
-                        || (p.CanDelete && action == "Delete")
-                        || (p.CanRead && action == "Read"))
-                        select p;
-            return query.AnyAsync();
+            var role = await _roleManager.FindByIdAsync(roleVm.Id.ToString());
+            role.Description = roleVm.Description;
+            role.Name = roleVm.Name;
+            await _roleManager.UpdateAsync(role);
         }
 
-       
-
-        public async Task DeleteAsync(string id)
+        public async Task DeleteAsync(Guid id)
         {
-            var role = await _roleManager.FindByIdAsync(id);
+            var role = await _roleManager.FindByIdAsync(id.ToString());
             await _roleManager.DeleteAsync(role);
         }
 
-      
         public async Task<List<AppRoleViewModel>> GetAllAsync()
         {
             return await _roleManager.Roles.ProjectTo<AppRoleViewModel>().ToListAsync();
@@ -95,16 +85,16 @@ namespace AspNetCore.Services.Systems.Roles
             return paginationSet;
         }
 
-        public async Task<AppRoleViewModel> GetById(string id)
+        public async Task<AppRoleViewModel> GetById(Guid id)
         {
-            var role = await _roleManager.FindByIdAsync(id);
+            var role = await _roleManager.FindByIdAsync(id.ToString());
             return Mapper.Map<AppRole, AppRoleViewModel>(role);
         }
 
         public List<PermissionViewModel> GetListFunctionWithRole(Guid roleId)
         {
-            var functions = _functionRepository.FindAll();
-            var permissions = _permissionRepository.FindAll();
+            var functions = _functionRepository.GetAll();
+            var permissions = _permissionRepository.GetAll();
 
             var query = from f in functions
                         join p in permissions on f.Id equals p.FunctionId into fp
@@ -125,39 +115,33 @@ namespace AspNetCore.Services.Systems.Roles
         public void SavePermission(List<PermissionViewModel> permissionVms, Guid roleId)
         {
             var permissions = Mapper.Map<List<PermissionViewModel>, List<Permission>>(permissionVms);
-            var oldPermission = _permissionRepository.FindAll().Where(x => x.RoleId == roleId).ToList();
+            var oldPermission = _permissionRepository.GetAll().ToList();
             if (oldPermission.Count > 0)
             {
-                _permissionRepository.RemoveMultiple(oldPermission);
+                _permissionRepository.Delete(x=>x.RoleId==roleId);
             }
             foreach (var permission in permissions)
             {
-                _permissionRepository.Add(permission);
+                _permissionRepository.Insert(permission);
             }
             _unitOfWork.Commit();
         }
 
-        public async Task UpdateAsync(AppRoleViewModel roleVm)
-        {
-            var role = await _roleManager.FindByIdAsync(roleVm.Id);
-            role.Description = roleVm.Description;
-            role.Name = roleVm.Name;
-            await _roleManager.UpdateAsync(role);
-        }
-
-        Task<AppRoleViewModel> IRoleService.GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
 
         public Task<bool> CheckPermission(Guid functionId, string action, string[] roles)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(Guid id)
-        {
-            throw new NotImplementedException();
+            var functions = _functionRepository.GetAll();
+            var permissions = _permissionRepository.GetAll();
+            var query = from f in functions
+                        join p in permissions on f.Id equals p.FunctionId
+                        join r in _roleManager.Roles on p.RoleId equals r.Id
+                        where roles.Contains(r.Name) && f.Id == functionId
+                        && ((p.CanCreate && action == "Create")
+                        || (p.CanUpdate && action == "Update")
+                        || (p.CanDelete && action == "Delete")
+                        || (p.CanRead && action == "Read"))
+                        select p;
+            return query.AnyAsync();
         }
 
     }

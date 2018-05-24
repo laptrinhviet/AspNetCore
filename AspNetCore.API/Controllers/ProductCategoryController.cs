@@ -21,5 +21,13 @@ namespace AspNetCore.API.Controllers
         {
             return new OkObjectResult(_productCategoryService.GetAll());
         }
+
+        //[HttpGet]
+        //[Route("getpaging")]
+        //public IActionResult GetPaging()
+        //{
+        //    return new OkObjectResult(_productCategoryService.GetAll());
+        //}
+
     }
 }

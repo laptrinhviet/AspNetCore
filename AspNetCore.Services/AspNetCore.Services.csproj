@@ -11,10 +11,6 @@
     <Compile Remove="Systems\AuditLogs\IAuditLogService.cs" />
     <Compile Remove="Systems\Permissions\IPermissionService.cs" />
     <Compile Remove="Systems\Permissions\PermissionService.cs" />
-    <Compile Remove="Systems\Roles\IRoleService.cs" />
-    <Compile Remove="Systems\Roles\RoleService.cs" />
-    <Compile Remove="Systems\Users\IUserService.cs" />
-    <Compile Remove="Systems\Users\UserService.cs" />
   </ItemGroup>
 
   <ItemGroup>

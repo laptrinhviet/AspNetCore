@@ -10,17 +10,11 @@ namespace AspNetCore.Services.Systems.Users
     public interface IUserService
     {
         Task<bool> AddAsync(AppUserViewModel userVm);
-
-        Task DeleteAsync(string id);
-
-        Task<List<AppUserViewModel>> GetAllAsync();
-
-        PagedResult<AppUserViewModel> GetAllPagingAsync(string keyword, int page, int pageSize);
-
-        Task<AppUserViewModel> GetById(string id);
-
-
         Task UpdateAsync(AppUserViewModel userVm);
-
+        Task DeleteAsync(Guid id);
+        Task<AppUserViewModel> GetById(Guid id);
+        Task<List<AppUserViewModel>> GetAllAsync();
+        PagedResult<AppUserViewModel> GetAllPagingAsync(string keyword, int page, int pageSize);
+        
     }
 }
