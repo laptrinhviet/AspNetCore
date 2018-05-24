@@ -98,5 +98,14 @@ namespace AspNetCore.Data.Entities
 
         //[ForeignKey("CategoryId")]
         //public virtual ProductCategory ProductCategory { set; get; }
+
+        //[ForeignKey("StyleId")]
+        //public virtual Style Style { set; get; }
+
+        //[ForeignKey("PatternId")]
+        //public virtual Pattern Pattern { set; get; }
+
+        //[ForeignKey("MaterialId")]
+        //public virtual Material Material { set; get; }
     }
 }
