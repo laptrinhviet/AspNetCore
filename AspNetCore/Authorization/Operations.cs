@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 
-namespace TeduCore.WebApp.Authorization
+namespace AspNetCore.Authorization
 {
     public static class Operations
     {

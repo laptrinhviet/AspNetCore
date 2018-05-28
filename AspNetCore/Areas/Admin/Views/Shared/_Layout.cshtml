@@ -22,6 +22,7 @@
     <link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />
     <!-- Custom Theme Style -->
     <link href="~/admin-side/css/custom.css" rel="stylesheet" />
+    @RenderSection("Styles", false)
 </head>
 
 <body class="nav-md">
@@ -45,9 +46,9 @@
                             <span>Welcome,</span>
                             <h2>@User.GetSpecificClaim("FullName")</h2>
                             @*<h2>
-                                @{var fullName = ((ClaimsIdentity)User.Identity).GetSpecificClaim("FullName");}
-                                @fullName
-                            </h2>*@
+                                    @{var fullName = ((ClaimsIdentity)User.Identity).GetSpecificClaim("FullName");}
+                                    @fullName
+                                </h2>*@
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -55,7 +56,7 @@
                     <br />
 
                     <!-- sidebar menu -->
-                  @await Component.InvokeAsync("SideBar")
+                    @await Component.InvokeAsync("SideBar")
                     <!-- /sidebar menu -->
                     <!-- /menu footer buttons -->
                     <div class="sidebar-footer hidden-small">
@@ -86,7 +87,7 @@
 
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
-                                @await  Html.PartialAsync("_LoginPartial")
+                                @await Html.PartialAsync("_LoginPartial")
                             </li>
 
                             <li role="presentation" class="dropdown">
@@ -185,21 +186,29 @@
     <!-- NProgress -->
     <script src="~/lib/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
+    <script src="~/lib/mustache/mustache.js"></script>
     <script src="~/lib/Chart.js/dist/Chart.js"></script>
     <!-- jQuery Sparklines -->
-    <script src="~/lib/jquery-sparkline/dist/jquery.sparkline.js"></script>
-    <!-- Flot -->
-    @*<script src="../vendors/Flot/jquery.flot.js"></script>
-        <script src="../vendors/Flot/jquery.flot.pie.js"></script>
-        <script src="../vendors/Flot/jquery.flot.time.js"></script>
-        <script src="../vendors/Flot/jquery.flot.stack.js"></script>
-        <script src="../vendors/Flot/jquery.flot.resize.js"></script>*@
+    <script src="~/lib/twbs-pagination/jquery.twbsPagination.js"></script>
+     @* <script src="~/lib/jquery-sparkline/dist/jquery.sparkline.js"></script>*@
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    @*<!-- Flot -->
+    <script src="../vendors/Flot/jquery.flot.js"></script>
+    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
     <!-- Flot plugins -->
-    @*<script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-        <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-        <script src="../vendors/flot.curvedlines/curvedLines.js"></script>*@
+    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
     <!-- DateJS -->
-    @*<script src="../vendors/DateJS/build/date.js"></script>*@
+    <script src="../vendors/DateJS/build/date.js"></script>*@
+
     <!-- bootstrap-daterangepicker -->
     <script src="~/lib/moment/moment.js"></script>
     <script src="~/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
@@ -210,5 +219,6 @@
     <script src="~/app/shared/aspnetcore.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="~/admin-side/js/custom.js"></script>
+    @RenderSection("Scripts", false)
 </body>
 </html>

@@ -41,7 +41,7 @@ namespace AspNetCore.Areas.Admin.Components
 
             //}
 
-            var roles = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x => x.Type == CommonConstants.UserClaim.Roles);
+            var roles = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x => x.Type == CommonConstants.UserClaims.Roles);
             List<FunctionViewModel> functions;
             if (roles != null && roles.Value.Split(";").Contains(CommonConstants.AppRole.Admin))
                 functions = await _functionService.GetAll(string.Empty);

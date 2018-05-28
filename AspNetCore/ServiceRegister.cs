@@ -21,14 +21,14 @@ namespace AspNetCore
         public static void Register(IServiceCollection services)
         {
             services.AddTransient<IFunctionService, FunctionService>();
+            services.AddTransient<IRoleService, RoleService>();
+            services.AddTransient<IUserService, UserService>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddTransient<IPostService, PostService>();
             services.AddTransient<IPostCategoryService, PostCategoryService>();
             //services.AddTransient<ICommonService, CommonService>();
-            //services.AddTransient<IPageService, PageService>();
-            //services.AddTransient<IUserService, UserService>();
-            //services.AddTransient<IRoleService, RoleService>();
+            //services.AddTransient<IPageService, PageService>();           
             //services.AddTransient<IBillService, BillService>();
             //services.AddTransient<ISlideService, SlideService>();
             //services.AddTransient<IPageService, PageService>();

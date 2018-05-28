@@ -586,7 +586,6 @@ namespace AspNetCore.Data.EF.Migrations
                     b.Property<string>("MetaKeywords");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(255);
 
                     b.Property<string>("PageAlias")
@@ -599,7 +598,8 @@ namespace AspNetCore.Data.EF.Migrations
 
                     b.Property<int>("Status");
 
-                    b.Property<string>("Tags");
+                    b.Property<string>("Tags")
+                        .HasMaxLength(255);
 
                     b.Property<DateTime?>("UpdatedDate");
 
@@ -729,10 +729,11 @@ namespace AspNetCore.Data.EF.Migrations
 
                     b.Property<decimal?>("PromotionPrice");
 
+                    b.Property<int>("Quantity");
+
                     b.Property<int>("Status");
 
                     b.Property<string>("Tags")
-                        .IsRequired()
                         .HasMaxLength(255);
 
                     b.Property<string>("Unit")
@@ -875,10 +876,6 @@ namespace AspNetCore.Data.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("UserId");
-
                     b.ToTable("ProductWishlists");
                 });
 
@@ -906,7 +903,8 @@ namespace AspNetCore.Data.EF.Migrations
                     b.Property<string>("TextValue");
 
                     b.Property<string>("UniqueCode")
-                        .HasMaxLength(255);
+                        .IsRequired()
+                        .HasMaxLength(128);
 
                     b.HasKey("Id");
 
@@ -1071,19 +1069,6 @@ namespace AspNetCore.Data.EF.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("AppUserTokens");
-                });
-
-            modelBuilder.Entity("AspNetCore.Data.Entities.ProductWishlist", b =>
-                {
-                    b.HasOne("AspNetCore.Data.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AspNetCore.Data.Entities.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

@@ -34,6 +34,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AspNetCore.Helpers;
+using AspNetCore.Authorization;
 //using AspNetCore.Authorization;
 
 namespace AspNetCore
@@ -77,6 +78,21 @@ namespace AspNetCore
                 // User settings
                 options.User.RequireUniqueEmail = true;
             });
+
+            services.AddSession(options =>
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = TimeSpan.FromHours(2);
+                options.Cookie.HttpOnly = true;
+            });
+
+            //services.AddSession(options =>
+            //{
+            //    // Set a short timeout for easy testing.
+            //    options.IdleTimeout = TimeSpan.FromHours(2);
+            //    options.Cookie.HttpOnly = true;
+            //});
+
             services.AddAutoMapper();
             //services.AddMvc();
 
@@ -119,12 +135,7 @@ namespace AspNetCore
             //    };
             //});
 
-            //services.AddSession(options =>
-            //{
-            //    // Set a short timeout for easy testing.
-            //    options.IdleTimeout = TimeSpan.FromHours(2);
-            //    options.Cookie.HttpOnly = true;
-            //});
+           
 
             // Authentication FB, Google
             //services.AddAuthentication()
@@ -166,7 +177,7 @@ namespace AspNetCore
 
             //services.AddTransient<IViewRenderService, ViewRenderService>();
 
-            //services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
+            services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
 
             //services.AddImageResizer();

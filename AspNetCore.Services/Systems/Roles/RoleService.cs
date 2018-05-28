@@ -14,7 +14,7 @@ using System;
 
 namespace AspNetCore.Services.Systems.Roles
 {
-    public class RoleService
+    public class RoleService : IRoleService
     {
         private readonly RoleManager<AppRole> _roleManager;
         private readonly IRepository<Function, Guid> _functionRepository;
@@ -128,14 +128,14 @@ namespace AspNetCore.Services.Systems.Roles
         }
 
 
-        public Task<bool> CheckPermission(Guid functionId, string action, string[] roles)
+        public Task<bool> CheckPermission(string functionCode, string action, string[] roles)
         {
             var functions = _functionRepository.GetAll();
             var permissions = _permissionRepository.GetAll();
             var query = from f in functions
                         join p in permissions on f.Id equals p.FunctionId
                         join r in _roleManager.Roles on p.RoleId equals r.Id
-                        where roles.Contains(r.Name) && f.Id == functionId
+                        where roles.Contains(r.Name) && f.UniqueCode == functionCode
                         && ((p.CanCreate && action == "Create")
                         || (p.CanUpdate && action == "Update")
                         || (p.CanDelete && action == "Delete")

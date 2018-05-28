@@ -23,6 +23,6 @@ namespace AspNetCore.Services.Systems.Roles
 
         void SavePermission(List<PermissionViewModel> permissions, Guid roleId);
 
-        Task<bool> CheckPermission(Guid functionId, string action, string[] roles);
+        Task<bool> CheckPermission(string functionCode, string action, string[] roles);
     }
 }
